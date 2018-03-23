@@ -3,22 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.example.com/categories/</loc>
+    <loc>http://handora.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/handora/</loc>
+    <loc>http://handora.github.io/handora/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/</loc>
+    <loc>http://handora.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/</loc>
+    <loc>http://handora.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
