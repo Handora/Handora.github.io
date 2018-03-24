@@ -17,7 +17,7 @@
       <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
       
       <guid>http://handora.github.io/post/2018/03/24/spark/</guid>
-      <description>Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing(Spark) Question of MapReduce  lack abstraction for leveraging distributed memory  iterative algorithm interactive data mining   Resilient distributed datasets  readonly, partition collection of record coarse-grained transformations lineage api  RDD vs. DSM  recovery is more light weight backup tasks like Mapreduce for stragglers data locality  Not suitable for RDD  fine-grained updates application  Spark programming interface  driver with cluster of =workers  Example  Logistic Regression  // parse text into point, then persist it to RAM val points = spark.</description>
+      <description>Resilient Distributed Datasets Note Question of MapReduce  lack abstraction for leveraging distributed memory  iterative algorithm interactive data mining   Resilient distributed datasets  readonly, partition collection of record coarse-grained transformations lineage api  RDD vs. DSM  recovery is more light weight backup tasks like Mapreduce for stragglers data locality  Not suitable for RDD  fine-grained updates application  Spark programming interface  driver with cluster of =workers  Example  Logistic Regression  // parse text into point, then persist it to RAM val points = spark.</description>
     </item>
     
   </channel>
