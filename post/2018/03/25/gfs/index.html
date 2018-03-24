@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='The Google File System Different point against traditional distributed file system  component failures is normal files are huge most files are mutated by appending new data rather than overwriting flexibale API  Assumptions for design overview  often fail large files workloads  large streaming reads small random reads large, sequential writes modify is rare  semantics for multiple clients concurrently append High bandwith than low latency  API  usual operation snapshot  COW  record append  Architecture  single master, multiple chunkservers accessed by multiple clients files are divided into fixed-size chunks, identified by an unique chunk handle, also replicated  Chunk size: 64MB  master maintaains all file system metadata  namespace access control information mapping from files to chunks current location of chunks chunk lease management gc chunk migration Heart beats with chunkservers  Not POSIX API master just transmit metadata, all data-bearing communication goes to chunkservers No cache for file data  gfs-architecture'>
+
+<meta property='og:title' content='Gfs Paper Notes • Never stop learning!'>
+<meta property='og:description' content='The Google File System Different point against traditional distributed file system  component failures is normal files are huge most files are mutated by appending new data rather than overwriting flexibale API  Assumptions for design overview  often fail large files workloads  large streaming reads small random reads large, sequential writes modify is rare  semantics for multiple clients concurrently append High bandwith than low latency  API  usual operation snapshot  COW  record append  Architecture  single master, multiple chunkservers accessed by multiple clients files are divided into fixed-size chunks, identified by an unique chunk handle, also replicated  Chunk size: 64MB  master maintaains all file system metadata  namespace access control information mapping from files to chunks current location of chunks chunk lease management gc chunk migration Heart beats with chunkservers  Not POSIX API master just transmit metadata, all data-bearing communication goes to chunkservers No cache for file data  gfs-architecture'>
+<meta property='og:url' content='http://handora.github.io/post/2018/03/25/gfs/'>
+<meta property='og:site_name' content='Never stop learning!'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-03-25T01:21:26&#43;08:00'/><meta property='article:modified_time' content='2018-03-25T01:21:26&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.37-DEV" />
+
+  <title>Gfs Paper Notes • Never stop learning!</title>
+  <link rel='canonical' href='http://handora.github.io/post/2018/03/25/gfs/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.9efb8af6.css'><link rel='stylesheet' href='/css/custom.css'>
+</head>
+
+
+<body class='page type-posts'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/categories/posts'>Posts</a>
+      </li><li class='item'>
+        <a href='https://github.com/handora'>Repo</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Never stop learning!</p><p class='desc site-desc'>Study now!</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Gfs Paper Notes</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-03-25T01:21:26&#43;08:00'>2018, Mar 25</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+2 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h1 id="the-google-file-system">The Google File System</h1>
+
+<h2 id="different-point-against-traditional-distributed-file-system">Different point against traditional distributed file system</h2>
+
+<ul>
+<li>component failures is normal</li>
+<li>files are huge</li>
+<li>most files are mutated by appending new data rather than overwriting</li>
+<li>flexibale API</li>
+</ul>
+
+<h2 id="assumptions-for-design-overview">Assumptions for design overview</h2>
+
+<ul>
+<li>often fail</li>
+<li>large files</li>
+<li>workloads
+
+<ol>
+<li>large streaming reads</li>
+<li>small random reads</li>
+<li>large, sequential writes</li>
+<li>modify is rare</li>
+</ol></li>
+<li>semantics for multiple clients concurrently append</li>
+<li>High bandwith than low latency</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<ul>
+<li>usual operation</li>
+<li>snapshot
+
+<ol>
+<li>COW</li>
+</ol></li>
+<li>record append</li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<ul>
+<li>single master, multiple chunkservers accessed by multiple clients</li>
+<li>files are divided into fixed-size chunks, identified by an unique
+<code>chunk handle</code>, also <code>replicated</code>
+
+<ol>
+<li>Chunk size: 64MB</li>
+</ol></li>
+<li>master maintaains all file system metadata
+
+<ol>
+<li>namespace</li>
+<li>access control information</li>
+<li>mapping from files to chunks</li>
+<li>current location of chunks</li>
+<li>chunk lease management</li>
+<li>gc</li>
+<li>chunk migration</li>
+<li>Heart beats with chunkservers</li>
+</ol></li>
+<li>Not POSIX API</li>
+<li>master just transmit metadata, all data-bearing communication goes
+to chunkservers</li>
+<li>No cache for file data</li>
+</ul>
+
+<p><a href="./Pictures/gfs-arch.JPG">gfs-architecture</a></p>
+
+<h2 id="metadata-in-master">Metadata in master</h2>
+
+<ul>
+<li>Three major type
+
+<ol>
+<li>namespace(persisted, replicated)</li>
+<li>mapping from files to chunks(persisted, replicated)</li>
+<li>location of each chun\&rsquo;s replicas(ask for information)</li>
+</ol></li>
+<li>All in memory</li>
+<li>chunk location
+
+<ol>
+<li>poll at start</li>
+</ol></li>
+</ul>
+
+<h2 id="operation-log">Operation log</h2>
+
+<h2 id="consistency-model">Consistency Model</h2>
+
+<p><img src="./Pictures/gfs-consisteny.png" alt="" /></p>
+
+<h2 id="implicaiton-for-application-level">implicaiton for application level</h2>
+
+<ul>
+<li>atomically rename</li>
+<li>checkpoint</li>
+<li>checksum and unqiue identifier for padding and rare depulication</li>
+</ul>
+
+<h2 id="leases">Leases</h2>
+
+<ul>
+<li>primary, one of the replications</li>
+</ul>
+
+<p><img src="./Pictures/gfs-dataflow.png" alt="" /></p>
+
+<h2 id="atomic-record-appends">Atomic Record Appends</h2>
+
+<ul>
+<li>successful record append is defined while intervening regions are
+undefined</li>
+</ul>
+
+<h2 id="master-operation">Master Operation</h2>
+
+<ul>
+<li>Namespace and locking if it involves <em>d1/d2</em>&hellip;/dn/leaf, it will
+acquire read-locks on the</li>
+</ul>
+
+<p>directory names /d1, /d1/d2, &hellip;, <em>d1/d2</em>&hellip;/dn, and either a read
+lockor a write lockon the full pathname <em>d1/d2</em>&hellip;/dn/leaf</p>
+
+<p>allows concurrent mutations in the same directory, multiple file
+creations can be executed concurrently in the same directory: each
+acquires a read lockon the directory name and a write lockon the file
+name</p>
+
+<ul>
+<li>replica Plcaement</li>
+<li>Creation, re-replica, rebalancing
+
+<ol>
+<li>limit the number of &ldquo;recent&rdquo; creations on each chunkserver</li>
+<li>place new replicas on chunkservers with below-average diskspace
+utilization</li>
+<li>spread replicas of a chunkacross racks</li>
+</ol></li>
+<li>GC
+
+<ol>
+<li>master logs the deletion</li>
+<li>file is just renamed to a hidden name that includes the deletion
+timestamp</li>
+<li>During the master&rsquo;s regular scan of the file system namespace,
+it removes any such hidden files if they have existed for more
+than three days</li>
+</ol></li>
+</ul>
+
+<h2 id="fault-tolerent">fault tolerent</h2>
+
+<ul>
+<li>fast recovery</li>
+<li>master/chunk replications
+
+<ol>
+<li>master shadow replica</li>
+</ol></li>
+<li>checksum for broken chunk</li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/2018/03/24/spark/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Spark Paper Notes</a>
+    </div></div>
+</nav>
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:qcdsr970209@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://gitlab.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>Handora</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script src='/assets/js/main.89545a27.js'></script><script src='/js/custom.js'></script></body>
+
+</html>
+

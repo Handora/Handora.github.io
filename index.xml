@@ -6,10 +6,19 @@
     <description>Recent content on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Sat, 24 Mar 2018 21:31:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Mar 2018 01:21:26 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gfs Paper Notes</title>
+      <link>http://handora.github.io/post/2018/03/25/gfs/</link>
+      <pubDate>Sun, 25 Mar 2018 01:21:26 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/03/25/gfs/</guid>
+      <description>The Google File System Different point against traditional distributed file system  component failures is normal files are huge most files are mutated by appending new data rather than overwriting flexibale API  Assumptions for design overview  often fail large files workloads  large streaming reads small random reads large, sequential writes modify is rare  semantics for multiple clients concurrently append High bandwith than low latency  API  usual operation snapshot  COW  record append  Architecture  single master, multiple chunkservers accessed by multiple clients files are divided into fixed-size chunks, identified by an unique chunk handle, also replicated  Chunk size: 64MB  master maintaains all file system metadata  namespace access control information mapping from files to chunks current location of chunks chunk lease management gc chunk migration Heart beats with chunkservers  Not POSIX API master just transmit metadata, all data-bearing communication goes to chunkservers No cache for file data  gfs-architecture</description>
+    </item>
     
     <item>
       <title>Spark Paper Notes</title>
