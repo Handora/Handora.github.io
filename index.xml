@@ -13,28 +13,28 @@
     
     <item>
       <title>Munin</title>
-      <link>http://handora.github.io/post/2018/03/munin/</link>
+      <link>http://handora.github.io/post/2018/03/2018-03-27-munin/</link>
       <pubDate>Mon, 26 Mar 2018 22:18:15 +0800</pubDate>
       
-      <guid>http://handora.github.io/post/2018/03/munin/</guid>
+      <guid>http://handora.github.io/post/2018/03/2018-03-27-munin/</guid>
       <description>Implementation and Performance of Munin buzzword  multiple consistency protocols release consistency shared program variables  requires memory to be consistent only at the specific synchronization points  delayed update queue  buffers and merges pending outgoing writes  prototype  preprocessor modified linker library routines os  Protocol Parameters &amp;amp; Sharing Annotations distributed queue-based synchronization protocol Data Object Directory Delayed Update Queue  Brief Summary Instead of one big, expensive shared-memory multiprocessor, data center with many inexpensive shared-memory multiprocessors is now an difficult while hot approach.</description>
     </item>
     
     <item>
       <title>Gfs Paper Notes</title>
-      <link>http://handora.github.io/post/2018/03/25/gfs/</link>
+      <link>http://handora.github.io/post/2018/03/2018-03-26-gfs/</link>
       <pubDate>Sun, 25 Mar 2018 01:21:26 +0800</pubDate>
       
-      <guid>http://handora.github.io/post/2018/03/25/gfs/</guid>
+      <guid>http://handora.github.io/post/2018/03/2018-03-26-gfs/</guid>
       <description>The Google File System Different point against traditional distributed file system  component failures is normal files are huge most files are mutated by appending new data rather than overwriting flexibale API  Assumptions for design overview  often fail large files workloads  large streaming reads small random reads large, sequential writes modify is rare  semantics for multiple clients concurrently append High bandwith than low latency  API  usual operation snapshot  COW  record append  Architecture  single master, multiple chunkservers accessed by multiple clients files are divided into fixed-size chunks, identified by an unique chunk handle, also replicated  Chunk size: 64MB  master maintaains all file system metadata  namespace access control information mapping from files to chunks current location of chunks chunk lease management gc chunk migration Heart beats with chunkservers  Not POSIX API master just transmit metadata, all data-bearing communication goes to chunkservers No cache for file data  Metadata in master  Three major type  namespace(persisted, replicated) mapping from files to chunks(persisted, replicated) location of each chun\&amp;rsquo;s replicas(ask for information)  All in memory chunk location  poll at start   Operation log Consistency Model  Weak Consistency Strong Consistency  implicaiton for application level  atomically rename checkpoint checksum and unqiue identifier for padding and rare depulication  Leases  primary, one of the replications  Atomic Record Appends  successful record append is defined while intervening regions are undefined at-least-once, with predictable magic number and unique IDs  Master Operation  Namespace and locking if it involves d1/d2&amp;hellip;/dn/leaf, it will acquire read-locks on the  directory names /d1, /d1/d2, &amp;hellip;, d1/d2&amp;hellip;/dn, and either a read lockor a write lockon the full pathname d1/d2&amp;hellip;/dn/leaf</description>
     </item>
     
     <item>
       <title>Spark Paper Notes</title>
-      <link>http://handora.github.io/post/2018/03/24/spark/</link>
+      <link>http://handora.github.io/post/2018/03/2018-03-25-spark/</link>
       <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
       
-      <guid>http://handora.github.io/post/2018/03/24/spark/</guid>
+      <guid>http://handora.github.io/post/2018/03/2018-03-25-spark/</guid>
       <description>Resilient Distributed Datasets Note Question of MapReduce  lack abstraction for leveraging distributed memory  iterative algorithm interactive data mining   Resilient distributed datasets  readonly, partition collection of record coarse-grained transformations lineage api  RDD vs. DSM  recovery is more light weight backup tasks like Mapreduce for stragglers data locality  Not suitable for RDD  fine-grained updates application  Spark programming interface  driver with cluster of =workers  Example  Logistic Regression  // parse text into point, then persist it to RAM val points = spark.</description>
     </item>
     
