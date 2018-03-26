@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Sun, 25 Mar 2018 01:21:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Mar 2018 22:18:15 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Munin</title>
+      <link>http://handora.github.io/post/2018/03/munin/</link>
+      <pubDate>Mon, 26 Mar 2018 22:18:15 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/03/munin/</guid>
+      <description>Implementation and Performance of Munin buzzword  multiple consistency protocols release consistency shared program variables  requires memory to be consistent only at the specific synchronization points  delayed update queue  buffers and merges pending outgoing writes  prototype  preprocessor modified linker library routines os  Protocol Parameters &amp;amp; Sharing Annotations distributed queue-based synchronization protocol Data Object Directory Delayed Update Queue  Brief Summary Instead of one big, expensive shared-memory multiprocessor, data center with many inexpensive shared-memory multiprocessors is now an difficult while hot approach.</description>
+    </item>
     
     <item>
       <title>Gfs Paper Notes</title>
