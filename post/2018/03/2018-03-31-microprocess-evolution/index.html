@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution buzzword  evolution  new requirements bottlenecks good fortune  a science of tradeoffs the tradeoff between high performance and low costs the tradeoff between high performance and power awareness pipelines in-chip cache branch prediction Specialized Functional Units out of order processing clusters chip multiprocessors(CMP) simultaneous multithreading(SMT) asynchronous and synchronous units coexisting  summary This paper introduces the evolution of the microprocessor from 1971 to 2001 and give the opinion about the result of evolution.'>
+
+<meta property='og:title' content='2018 03 31 Microprocess Evolution • Never stop learning!'>
+<meta property='og:description' content='Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution buzzword  evolution  new requirements bottlenecks good fortune  a science of tradeoffs the tradeoff between high performance and low costs the tradeoff between high performance and power awareness pipelines in-chip cache branch prediction Specialized Functional Units out of order processing clusters chip multiprocessors(CMP) simultaneous multithreading(SMT) asynchronous and synchronous units coexisting  summary This paper introduces the evolution of the microprocessor from 1971 to 2001 and give the opinion about the result of evolution.'>
+<meta property='og:url' content='http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/'>
+<meta property='og:site_name' content='Never stop learning!'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-03-31T23:42:12&#43;08:00'/><meta property='article:modified_time' content='2018-03-31T23:42:12&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.37-DEV" />
+
+  <title>2018 03 31 Microprocess Evolution • Never stop learning!</title>
+  <link rel='canonical' href='http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/'>
+  
+  
+  <link rel='icon' href='/favicon-go.ico'>
+<link rel='stylesheet' href='/assets/css/main.9efb8af6.css'><link rel='stylesheet' href='/css/custom.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-116358548-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/categories/posts'>Posts</a>
+      </li><li class='item'>
+        <a href='https://github.com/handora'>Repo</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Never stop learning!</p><p class='desc site-desc'>Study now!</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>2018 03 31 Microprocess Evolution</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-03-31T23:42:12&#43;08:00'>2018, Mar 31</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+2 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h1 id="requirements-bottlenecks-and-good-fortune-agents-for-microprocessor-evolution">Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution</h1>
+
+<h2 id="buzzword">buzzword</h2>
+
+<ul>
+<li>evolution
+
+<ol>
+<li>new requirements</li>
+<li>bottlenecks</li>
+<li>good fortune</li>
+</ol></li>
+<li>a science of tradeoffs</li>
+<li>the tradeoff between high performance and low costs</li>
+<li>the tradeoff between high performance and power awareness</li>
+<li>pipelines</li>
+<li>in-chip cache</li>
+<li>branch prediction</li>
+<li>Specialized Functional Units</li>
+<li>out of order processing</li>
+<li>clusters</li>
+<li>chip multiprocessors(CMP)</li>
+<li>simultaneous multithreading(SMT)</li>
+<li>asynchronous and synchronous units coexisting</li>
+</ul>
+
+<h2 id="summary">summary</h2>
+
+<p>This paper introduces the evolution of the microprocessor from 1971 to
+2001 and give the opinion about the result of evolution.Author proposes
+three things. 1) new requirements; 2) bottlenecks; and 3) good fortune.
+All above are collectively called <code>collectively
+agents</code>. Whats\&rsquo; more, the author introduces the past implementations
+and its pros and cons, such as pipelining, on-chip caches, out-of-order
+processing and so on. Moreover, he discusses the future of
+microprocessor and predicts how it will likely be for the future
+development, just like new the data path, new materials and so on.
+Finally, he concludes with what should do and what thoughts(the author
+mentiones the CAD tools) should be modified at that time.</p>
+
+<h3 id="strengths">Strengths</h3>
+
+<ul>
+<li><p>The paper is well structured and proposes three interesting things
+on the result of microprocessor evolution.</p></li>
+
+<li><p>The paper introduces many past implementations and evolutions which
+widely explain the pass implementation and give one who has little
+preknowledge some interesting introductions.</p></li>
+
+<li><p>The paper predicts the future on what the future would be in the
+realm of the microprocessor.This gives a brand new advice on how to
+use the past evolution to predict the future.</p></li>
+</ul>
+
+<h3 id="weaknesses">Weaknesses:</h3>
+
+<ul>
+<li>The good fortune part is too short that I can\&rsquo;t figure out what
+this part means.</li>
+</ul>
+
+<h3 id="ideas-for-improvement">Ideas for improvement</h3>
+
+<ul>
+<li>Expand the explanation on how good fortune impresses the evolution
+and give some more examples.</li>
+</ul>
+
+<h3 id="lessons-learned">Lessons learned</h3>
+
+<p>This paper gives me a good overview of the timeline of microprocessor
+evolution. I have a better understanding of why the microprocessor would
+become like what it likes nowadays. What\&rsquo;s more, this paper gives me a
+brand new idea about how to predict the future improvements. The three
+interesting ideas also impress me how to think about the microprocessor
+a lot. What\&rsquo;s more, I think these ideas can be suited to other realms
+of computer science.</p>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/2018/03/2018-03-30-kvscan/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Kvscan学习体验</a>
+    </div></div>
+</nav>
+
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-handora-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/AllenHandora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:qcdsr970209@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://gitlab.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>Handora</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script src='/assets/js/main.89545a27.js'></script><script src='/js/custom.js'></script></body>
+
+</html>
+
