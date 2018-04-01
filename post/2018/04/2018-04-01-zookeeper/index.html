@@ -151,9 +151,9 @@ requests pipelined. Moreover, the Zookeeper introduces a leader-based
 atomic broadcast protocol called <code>Zab</code> which is much like Raft with some
 tiny differences. The Zookeeper also reduces the read overheads by
 performing read locally for their workflow in which read is ten to
-hundreds of writes. In addition, the paper introduces the watch
+hundreds more than writes. In addition, the paper introduces the watch
 mechanism which gives a nice interface for building higher abstraction
-among ZooKeeper and also provides nice performance for delay notifying
+above ZooKeeper and also provides nice performance for delay notifying
 and powerful functionality.</p>
 
 <p>Above all, the paper first proposes a wait-free coordination service
@@ -164,7 +164,7 @@ the paper introduces some examples of primitives involving blocking and
 no-blocking ones and applications based on ZooKeeper. After that, it
 gives the implementation of request processor for idempotency, atomic
 broadcast based on Zab and replicated database which much like the
-<code>MIT 6.826</code> lab3 while supports locally read and asynchronous
+<code>MIT 6.826</code> lab3 while supports locally reads and asynchronous
 operations.</p>
 
 <h3 id="strength">Strength</h3>
@@ -178,11 +178,11 @@ property and <code>Sync</code> operations.</p></li>
 software programmers and also provides a much powerful feature.</p></li>
 
 <li><p>The paper introduces the term <code>universal object</code>, which can be used
-to build more powerful systems which is an important idea in the
+to build more powerful systems. And it is an important idea in the
 hierarchy of system architecture.</p></li>
 
 <li><p>Nice combination of wait-free property and ordering guarantees like
-watches, sessions. Which gives a new idea of consistency
+watches, sessions. It gives a new idea of consistency
 implementation.</p></li>
 
 <li><p>The fuzzy snapshot is interesting and used with the idempotency.</p></li>
@@ -199,8 +199,8 @@ implementation.</p></li>
 <h3 id="improvement">Improvement</h3>
 
 <ul>
-<li>More introduction to their new algorithm and their differences
-between <code>Paxos</code> and <code>Raft</code></li>
+<li>More introduction to their new algorithm and the differences
+between <code>Paxos</code>, <code>Raft</code> and <code>Zab</code></li>
 </ul>
 
 <h3 id="lesson-learned">Lesson learned</h3>
@@ -210,7 +210,7 @@ the Zookeeper. And after that, we should design some mechanisms to solve
 the rare inconsistency. We can expect the system themselves solve these
 problems like the Zookeeper uses the ordering guarantees or application
 code to solve them or like the Gfs which depends on the application
-code. Moreover. the idea of generic coordination kernel is impressive.</p>
+code to remove duplications. Moreover. the idea of generic coordination kernel is impressive.</p>
 
 </div>
 
