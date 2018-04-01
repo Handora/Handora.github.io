@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Sat, 31 Mar 2018 23:42:12 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Apr 2018 18:00:25 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zookeeper Paper Summary</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-01-zookeeper/</link>
+      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-01-zookeeper/</guid>
+      <description>ZooKeeper: Wait-free coordination for Internet-scale systems buzzword  wait-free property distributed lock services FIFO client ordering asynchronous linearizability linearizable write atomic broadcast protocol  Zab dominated by reads read locally  Znode  Regular Ephemeral sequential flag  use zookeeper to implement more powerful primitives Herd effect Fetching service based on zookeeper linearizability vs. serializability  Summary This paper describes the ZooKeeper as a coordination kernel which provides high-performance service can be used to implement more powerful primitives.</description>
+    </item>
     
     <item>
       <title>Microprocess Evolution Paper Summary</title>

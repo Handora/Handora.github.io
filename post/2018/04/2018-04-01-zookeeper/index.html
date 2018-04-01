@@ -4,18 +4,18 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution buzzword  evolution  new requirements bottlenecks good fortune  a science of tradeoffs the tradeoff between high performance and low costs the tradeoff between high performance and power awareness pipelines in-chip cache branch prediction Specialized Functional Units out of order processing clusters chip multiprocessors(CMP) simultaneous multithreading(SMT) asynchronous and synchronous units coexisting  summary This paper introduces the evolution of the microprocessor from 1971 to 2001 and give the opinion about the result of evolution.'>
+<meta name='description' content='ZooKeeper: Wait-free coordination for Internet-scale systems buzzword  wait-free property distributed lock services FIFO client ordering asynchronous linearizability linearizable write atomic broadcast protocol  Zab dominated by reads read locally  Znode  Regular Ephemeral sequential flag  use zookeeper to implement more powerful primitives Herd effect Fetching service based on zookeeper linearizability vs. serializability  Summary This paper describes the ZooKeeper as a coordination kernel which provides high-performance service can be used to implement more powerful primitives.'>
 
-<meta property='og:title' content='Microprocess Evolution Paper Summary • Never stop learning!'>
-<meta property='og:description' content='Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution buzzword  evolution  new requirements bottlenecks good fortune  a science of tradeoffs the tradeoff between high performance and low costs the tradeoff between high performance and power awareness pipelines in-chip cache branch prediction Specialized Functional Units out of order processing clusters chip multiprocessors(CMP) simultaneous multithreading(SMT) asynchronous and synchronous units coexisting  summary This paper introduces the evolution of the microprocessor from 1971 to 2001 and give the opinion about the result of evolution.'>
-<meta property='og:url' content='http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/'>
+<meta property='og:title' content='Zookeeper Paper Summary • Never stop learning!'>
+<meta property='og:description' content='ZooKeeper: Wait-free coordination for Internet-scale systems buzzword  wait-free property distributed lock services FIFO client ordering asynchronous linearizability linearizable write atomic broadcast protocol  Zab dominated by reads read locally  Znode  Regular Ephemeral sequential flag  use zookeeper to implement more powerful primitives Herd effect Fetching service based on zookeeper linearizability vs. serializability  Summary This paper describes the ZooKeeper as a coordination kernel which provides high-performance service can be used to implement more powerful primitives.'>
+<meta property='og:url' content='http://handora.github.io/post/2018/04/2018-04-01-zookeeper/'>
 <meta property='og:site_name' content='Never stop learning!'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-03-31T23:42:12&#43;08:00'/><meta property='article:modified_time' content='2018-03-31T23:42:12&#43;08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-04-01T18:00:25&#43;08:00'/><meta property='article:modified_time' content='2018-04-01T18:00:25&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.37-DEV" />
 
-  <title>Microprocess Evolution Paper Summary • Never stop learning!</title>
-  <link rel='canonical' href='http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/'>
+  <title>Zookeeper Paper Summary • Never stop learning!</title>
+  <link rel='canonical' href='http://handora.github.io/post/2018/04/2018-04-01-zookeeper/'>
   
   
   <link rel='icon' href='/favicon-go.ico'>
@@ -66,7 +66,7 @@ ga('send', 'pageview');
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Microprocess Evolution Paper Summary</h1>
+      <h1 class='title'>Zookeeper Paper Summary</h1>
       
 
     </div>
@@ -81,7 +81,7 @@ ga('send', 'pageview');
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2018-03-31T23:42:12&#43;08:00'>2018, Mar 31</time>
+  <time class='entry-date' datetime='2018-04-01T18:00:25&#43;08:00'>2018, Apr 01</time>
 </span>
 
   
@@ -92,7 +92,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-2 mins read
+3 mins read
 </span>
 
 
@@ -108,84 +108,109 @@ ga('send', 'pageview');
   <div class='container entry-content'>
   
 
-<h1 id="requirements-bottlenecks-and-good-fortune-agents-for-microprocessor-evolution">Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution</h1>
+<h1 id="zookeeper-wait-free-coordination-for-internet-scale-systems">ZooKeeper: Wait-free coordination for Internet-scale systems</h1>
 
 <h2 id="buzzword">buzzword</h2>
 
 <ul>
-<li>evolution
+<li>wait-free property</li>
+<li>distributed lock services</li>
+<li>FIFO client ordering</li>
+<li>asynchronous linearizability</li>
+<li>linearizable write</li>
+<li>atomic broadcast protocol
 
 <ol>
-<li>new requirements</li>
-<li>bottlenecks</li>
-<li>good fortune</li>
+<li>Zab</li>
+<li>dominated by reads</li>
+<li>read locally</li>
 </ol></li>
-<li>a science of tradeoffs</li>
-<li>the tradeoff between high performance and low costs</li>
-<li>the tradeoff between high performance and power awareness</li>
-<li>pipelines</li>
-<li>in-chip cache</li>
-<li>branch prediction</li>
-<li>Specialized Functional Units</li>
-<li>out of order processing</li>
-<li>clusters</li>
-<li>chip multiprocessors(CMP)</li>
-<li>simultaneous multithreading(SMT)</li>
-<li>asynchronous and synchronous units coexisting</li>
+<li>Znode
+
+<ol>
+<li>Regular</li>
+<li>Ephemeral</li>
+<li>sequential flag</li>
+</ol></li>
+<li>use zookeeper to implement more powerful primitives</li>
+<li>Herd effect</li>
+<li>Fetching service based on zookeeper</li>
+<li>linearizability vs. serializability</li>
 </ul>
 
-<h2 id="summary">summary</h2>
+<h2 id="summary">Summary</h2>
 
-<p>This paper introduces the evolution of the microprocessor from 1971 to
-2001 and give the opinion about the result of evolution.Author proposes
-three things. 1) new requirements; 2) bottlenecks; and 3) good fortune.
-All above are collectively called <code>collectively
-agents</code>. Whats&rsquo; more, the author introduces the past implementations
-and its pros and cons, such as pipelining, on-chip caches, out-of-order
-processing and so on. Moreover, he discusses the future of
-microprocessor and predicts how it will likely be for the future
-development, just like the new data path, new materials and so on.
-Finally, he concludes with what should be done and what thoughts(the author
-mentiones the CAD tools) should be modified at that time.</p>
+<p>This paper describes the ZooKeeper as a coordination kernel which
+provides high-performance service can be used to implement more powerful
+primitives. The ZooKeeper is inspired by <code>chubby</code> from Google which is a
+distributed lock manager and provides a similar file system style
+interface while the Zookeeper differs from it with wait-free property
+and order guarantees for coordination. The wait-free property and order
+guarantees enable asynchronous operations and so on makes the client
+requests pipelined. Moreover, the Zookeeper introduces a leader-based
+atomic broadcast protocol called <code>Zab</code> which is much like Raft with some
+tiny differences. The Zookeeper also reduces the read overheads by
+performing read locally for their workflow in which read is ten to
+hundreds of writes. In addition, the paper introduces the watch
+mechanism which gives a nice interface for building higher abstraction
+among ZooKeeper and also provides nice performance for delay notifying
+and powerful functionality.</p>
 
-<h3 id="strengths">Strengths</h3>
+<p>Above all, the paper first proposes a wait-free coordination service
+with relax consistency guarantees and introduces some interesting
+mechanisms like the watch, file system style API and two basic
+guarantees which supports linearizability and FIFO client order. Then
+the paper introduces some examples of primitives involving blocking and
+no-blocking ones and applications based on ZooKeeper. After that, it
+gives the implementation of request processor for idempotency, atomic
+broadcast based on Zab and replicated database which much like the
+<code>MIT 6.826</code> lab3 while supports locally read and asynchronous
+operations.</p>
+
+<h3 id="strength">Strength</h3>
 
 <ul>
-<li><p>The paper is well structured and proposes three interesting things
-on the result of microprocessor evolution.</p></li>
+<li><p>The paper gives us an idea about how to fasten the distributed
+system and provides a nice consistency. Just like the wait-free
+property and <code>Sync</code> operations.</p></li>
 
-<li><p>The paper introduces many past implementations and evolutions which
-widely explain the past implementation and give one who has little
-preknowledge some important introductions.</p></li>
+<li><p>The paper gives us the idea of watches which simplify the efforts of
+software programmers and also provides a much powerful feature.</p></li>
 
-<li><p>The paper predicts the future on what the future would be in the
-realm of the microprocessor.This gives a brand new advice on how to
-use the past evolution to predict the future.</p></li>
+<li><p>The paper introduces the term <code>universal object</code>, which can be used
+to build more powerful systems which is an important idea in the
+hierarchy of system architecture.</p></li>
+
+<li><p>Nice combination of wait-free property and ordering guarantees like
+watches, sessions. Which gives a new idea of consistency
+implementation.</p></li>
+
+<li><p>The fuzzy snapshot is interesting and used with the idempotency.</p></li>
 </ul>
 
-<h3 id="weaknesses">Weaknesses:</h3>
+<h3 id="weakness">Weakness</h3>
 
 <ul>
-<li>The good fortune part is too short that I can\&rsquo;t figure out what
-this part means.</li>
+<li><p>No proper introduction to their Zab algorithm.</p></li>
+
+<li><p>No introduction to how ordering guarantees are implemented</p></li>
 </ul>
 
-<h3 id="ideas-for-improvement">Ideas for improvement</h3>
+<h3 id="improvement">Improvement</h3>
 
 <ul>
-<li>Expand the explanation on how good fortune impresses the evolution
-and give some more examples.</li>
+<li>More introduction to their new algorithm and their differences
+between <code>Paxos</code> and <code>Raft</code></li>
 </ul>
 
-<h3 id="lessons-learned">Lessons learned</h3>
+<h3 id="lesson-learned">Lesson learned</h3>
 
-<p>This paper gives me a good overview of the timeline of microprocessor
-evolution. I have a better understanding of why the microprocessor would
-become like what it likes nowadays. What\&rsquo;s more, this paper gives me a
-brand new idea about how to predict the future improvements. The three
-interesting ideas also impress me how to think about the microprocessor
-a lot. What\&rsquo;s more, I think these ideas can be suited to other realms
-of computer science.</p>
+<p>We can compromise some of the accuracies for the performance just like
+the Zookeeper. And after that, we should design some mechanisms to solve
+the rare inconsistency. We can expect the system themselves solve these
+problems like the Zookeeper uses the ordering guarantees or application
+code to solve them or like the Gfs which depends on the application
+code. Moreover. the idea of generic coordination kernel is impressive.</p>
 
 </div>
 
@@ -201,7 +226,7 @@ of computer science.</p>
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/post/2018/03/2018-03-30-kvscan/'>
+      <a href='/post/2018/03/2018-03-31-microprocess-evolution/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -209,17 +234,7 @@ of computer science.</p>
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>Kvscan学习体验</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/post/2018/04/2018-04-01-zookeeper/'>
-        <span class='screen-reader-text'>Next post: </span>Zookeeper Paper Summary<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Microprocess Evolution Paper Summary</a>
     </div></div>
 </nav>
 
