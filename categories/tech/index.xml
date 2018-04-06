@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Distributed System on Never stop learning!</title>
-    <link>http://handora.github.io/tags/distributed-system/</link>
-    <description>Recent content in Distributed System on Never stop learning!</description>
+    <title>TECH on Never stop learning!</title>
+    <link>http://handora.github.io/categories/tech/</link>
+    <description>Recent content in TECH on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
     <lastBuildDate>Sun, 01 Apr 2018 18:00:25 +0800</lastBuildDate>
     
-	<atom:link href="http://handora.github.io/tags/distributed-system/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://handora.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,6 +18,15 @@
       
       <guid>http://handora.github.io/post/2018/04/2018-04-01-zookeeper/</guid>
       <description>ZooKeeper: Wait-free coordination for Internet-scale systems buzzword  wait-free property distributed lock services FIFO client ordering asynchronous linearizability linearizable write atomic broadcast protocol  Zab dominated by reads read locally  Znode  Regular Ephemeral sequential flag  use zookeeper to implement more powerful primitives Herd effect Fetching service based on zookeeper linearizability vs. serializability  Summary This paper describes the ZooKeeper as a coordination kernel which provides high-performance service can be used to implement more powerful primitives.</description>
+    </item>
+    
+    <item>
+      <title>Microprocess Evolution Paper Summary</title>
+      <link>http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/</link>
+      <pubDate>Sat, 31 Mar 2018 23:42:12 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/03/2018-03-31-microprocess-evolution/</guid>
+      <description>Requirements, Bottlenecks, and Good Fortune: Agents for Microprocessor Evolution buzzword  evolution  new requirements bottlenecks good fortune  a science of tradeoffs the tradeoff between high performance and low costs the tradeoff between high performance and power awareness pipelines in-chip cache branch prediction Specialized Functional Units out of order processing clusters chip multiprocessors(CMP) simultaneous multithreading(SMT) asynchronous and synchronous units coexisting  summary This paper introduces the evolution of the microprocessor from 1971 to 2001 and give the opinion about the result of evolution.</description>
     </item>
     
     <item>

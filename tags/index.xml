@@ -6,13 +6,22 @@
     <description>Recent content in Tags on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Sat, 24 Mar 2018 21:31:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Apr 2018 18:00:25 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cloud computing</title>
+      <title>Asynchronous Interface</title>
+      <link>http://handora.github.io/tags/asynchronous-interface/</link>
+      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/asynchronous-interface/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Computing</title>
       <link>http://handora.github.io/tags/cloud-computing/</link>
       <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
       
@@ -21,20 +30,56 @@
     </item>
     
     <item>
+      <title>Computer Architecture</title>
+      <link>http://handora.github.io/tags/computer-architecture/</link>
+      <pubDate>Sat, 31 Mar 2018 23:42:12 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/computer-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Share Memory</title>
+      <link>http://handora.github.io/tags/distributed-share-memory/</link>
+      <pubDate>Mon, 26 Mar 2018 22:18:15 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/distributed-share-memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Distributed System</title>
       <link>http://handora.github.io/tags/distributed-system/</link>
-      <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
+      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/distributed-system/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Paper</title>
-      <link>http://handora.github.io/tags/paper/</link>
-      <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
+      <title>File System</title>
+      <link>http://handora.github.io/tags/file-system/</link>
+      <pubDate>Sun, 25 Mar 2018 01:21:26 +0800</pubDate>
       
-      <guid>http://handora.github.io/tags/paper/</guid>
+      <guid>http://handora.github.io/tags/file-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implementation Experience</title>
+      <link>http://handora.github.io/tags/implementation-experience/</link>
+      <pubDate>Fri, 30 Mar 2018 23:21:38 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/implementation-experience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paper Review</title>
+      <link>http://handora.github.io/tags/paper-review/</link>
+      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/paper-review/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed Share Memory on Never stop learning!</title>
+    <link>http://handora.github.io/tags/distributed-share-memory/</link>
+    <description>Recent content in Distributed Share Memory on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Mon, 26 Mar 2018 22:18:15 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/distributed-share-memory/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Munin Summary</title>
+      <link>http://handora.github.io/post/2018/03/2018-03-27-munin/</link>
+      <pubDate>Mon, 26 Mar 2018 22:18:15 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/03/2018-03-27-munin/</guid>
+      <description>Implementation and Performance of Munin buzzword  multiple consistency protocols release consistency shared program variables  requires memory to be consistent only at the specific synchronization points  delayed update queue  buffers and merges pending outgoing writes  prototype  preprocessor modified linker library routines os  Protocol Parameters &amp;amp; Sharing Annotations distributed queue-based synchronization protocol Data Object Directory Delayed Update Queue  Brief Summary Instead of one big, expensive shared-memory multiprocessor, data center with many inexpensive shared-memory multiprocessors is now an difficult while hot approach.</description>
+    </item>
+    
+  </channel>
+</rss>

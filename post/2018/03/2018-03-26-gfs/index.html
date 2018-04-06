@@ -10,7 +10,7 @@
 <meta property='og:description' content='The Google File System Different point against traditional distributed file system  component failures is normal files are huge most files are mutated by appending new data rather than overwriting flexibale API  Assumptions for design overview  often fail large files workloads  large streaming reads small random reads large, sequential writes modify is rare  semantics for multiple clients concurrently append High bandwith than low latency  API  usual operation snapshot  COW  record append  Architecture  single master, multiple chunkservers accessed by multiple clients files are divided into fixed-size chunks, identified by an unique chunk handle, also replicated  Chunk size: 64MB  master maintaains all file system metadata  namespace access control information mapping from files to chunks current location of chunks chunk lease management gc chunk migration Heart beats with chunkservers  Not POSIX API master just transmit metadata, all data-bearing communication goes to chunkservers No cache for file data  Metadata in master  Three major type  namespace(persisted, replicated) mapping from files to chunks(persisted, replicated) location of each chun\&rsquo;s replicas(ask for information)  All in memory chunk location  poll at start   Operation log Consistency Model  Weak Consistency Strong Consistency  implicaiton for application level  atomically rename checkpoint checksum and unqiue identifier for padding and rare depulication  Leases  primary, one of the replications  Atomic Record Appends  successful record append is defined while intervening regions are undefined at-least-once, with predictable magic number and unique IDs  Master Operation  Namespace and locking if it involves d1/d2&hellip;/dn/leaf, it will acquire read-locks on the  directory names /d1, /d1/d2, &hellip;, d1/d2&hellip;/dn, and either a read lockor a write lockon the full pathname d1/d2&hellip;/dn/leaf'>
 <meta property='og:url' content='http://handora.github.io/post/2018/03/2018-03-26-gfs/'>
 <meta property='og:site_name' content='Never stop learning!'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-03-25T01:21:26&#43;08:00'/><meta property='article:modified_time' content='2018-03-25T01:21:26&#43;08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='File System'><meta property='article:published_time' content='2018-03-25T01:21:26&#43;08:00'/><meta property='article:modified_time' content='2018-03-25T01:21:26&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.37-DEV" />
 
@@ -30,7 +30,7 @@ ga('send', 'pageview');
 </head>
 
 
-<body class='page type-posts'>
+<body class='page type-post'>
 
   <div class='site'>
 
@@ -284,7 +284,24 @@ than three days</li>
   
 <footer class='entry-footer'>
   <div class='container sep-before'>
+  <div class='categories'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech'>TECH</a></div>
+<div class='tags'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/distributed-system'>Distributed System</a>, <a class='tag' href='/tags/paper-review'>Paper Review</a>, <a class='tag' href='/tags/file-system'>File System</a></div>
+
   </div>
 </footer>
 
