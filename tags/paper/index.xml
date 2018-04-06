@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper on Never stop learning!</title>
+    <link>http://handora.github.io/tags/paper/</link>
+    <description>Recent content in Paper on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Sat, 24 Mar 2018 21:31:09 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spark Paper Notes</title>
+      <link>http://handora.github.io/post/2018/03/2018-03-25-spark/</link>
+      <pubDate>Sat, 24 Mar 2018 21:31:09 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/03/2018-03-25-spark/</guid>
+      <description>Resilient Distributed Datasets Note Question of MapReduce  lack abstraction for leveraging distributed memory  iterative algorithm interactive data mining   Resilient distributed datasets  readonly, partition collection of record coarse-grained transformations lineage api  RDD vs. DSM  recovery is more light weight backup tasks like Mapreduce for stragglers data locality  Not suitable for RDD  fine-grained updates application  Spark programming interface  driver with cluster of =workers  Example  Logistic Regression  // parse text into point, then persist it to RAM val points = spark.</description>
+    </item>
+    
+  </channel>
+</rss>
