@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About Me on Never stop learning!</title>
+    <link>http://handora.github.io/tags/about-me/</link>
+    <description>Recent content in About Me on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Fri, 06 Apr 2018 20:37:38 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/about-me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>http://handora.github.io/aboutme/</link>
+      <pubDate>Fri, 06 Apr 2018 20:37:38 +0800</pubDate>
+      
+      <guid>http://handora.github.io/aboutme/</guid>
+      <description>Who&amp;rsquo;s this guy? Hi, i&amp;rsquo;m QianChen.
+I&amp;rsquo;m a weak system programmer enjoying in distributed storage system. For a quick overview, I&amp;rsquo;m currently:
+ Learning distributed system which is much interesting and cool! Ricing Arch Linux+i3wm configuration. Enjoying to work on emacs. Playing with rasppberry pi to build lots of amazing things.  I also love tennis, animes and card games. I have played Yo-Gi-Oh! for more than seven years.</description>
+    </item>
+    
+  </channel>
+</rss>
