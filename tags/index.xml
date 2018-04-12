@@ -59,9 +59,18 @@
     <item>
       <title>Distributed System</title>
       <link>http://handora.github.io/tags/distributed-system/</link>
-      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      <pubDate>Thu, 12 Apr 2018 17:21:14 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eventual Consistency</title>
+      <link>http://handora.github.io/tags/eventual-consistency/</link>
+      <pubDate>Thu, 12 Apr 2018 17:21:14 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/eventual-consistency/</guid>
       <description></description>
     </item>
     
@@ -86,7 +95,7 @@
     <item>
       <title>Paper Review</title>
       <link>http://handora.github.io/tags/paper-review/</link>
-      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      <pubDate>Thu, 12 Apr 2018 17:21:14 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/paper-review/</guid>
       <description></description>

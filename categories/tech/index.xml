@@ -6,10 +6,19 @@
     <description>Recent content in TECH on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Sun, 01 Apr 2018 18:00:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Apr 2018 17:21:14 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bayou Paper Review</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-12-bayou/</link>
+      <pubDate>Thu, 12 Apr 2018 17:21:14 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-12-bayou/</guid>
+      <description>Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System Buzzwords  weakly replicated storage system for bad network connectivity eventual consistency dependency checks conflict resolution rollback and redo in serialization order tentative and committed session guarantees anti-entropy, epidemic algorithms logical clocks for timestamp log instead of data  Summary The operations in disconnected or weakly connected nectwork are often valuable in real world. Many real world applications require the operations of immediate reads and writes of a local replica even disconected just as Git or Dropbox.</description>
+    </item>
     
     <item>
       <title>Zookeeper Paper Summary</title>
