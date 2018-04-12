@@ -4,10 +4,10 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System Buzzwords  weakly replicated storage system for bad network connectivity eventual consistency dependency checks conflict resolution rollback and redo in serialization order tentative and committed session guarantees anti-entropy, epidemic algorithms logical clocks for timestamp log instead of data  Summary The operations in disconnected or weakly connected nectwork are often valuable in real world. Many real world applications require the operations of immediate reads and writes of a local replica even disconected just as Git or Dropbox.'>
+<meta name='description' content='Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System Buzzwords  weakly replicated storage system for bad network connectivity eventual consistency dependency checks conflict resolution rollback and redo in serialization order tentative and committed session guarantees anti-entropy, epidemic algorithms logical clocks for timestamp log instead of data  Summary The operations in the disconnected or weakly connected network are often valuable in the real world. Many real-world applications require the operations of immediate reads and writes of a local replica even disconnected just as Git or Dropbox.'>
 
 <meta property='og:title' content='Bayou Paper Review • Never stop learning!'>
-<meta property='og:description' content='Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System Buzzwords  weakly replicated storage system for bad network connectivity eventual consistency dependency checks conflict resolution rollback and redo in serialization order tentative and committed session guarantees anti-entropy, epidemic algorithms logical clocks for timestamp log instead of data  Summary The operations in disconnected or weakly connected nectwork are often valuable in real world. Many real world applications require the operations of immediate reads and writes of a local replica even disconected just as Git or Dropbox.'>
+<meta property='og:description' content='Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System Buzzwords  weakly replicated storage system for bad network connectivity eventual consistency dependency checks conflict resolution rollback and redo in serialization order tentative and committed session guarantees anti-entropy, epidemic algorithms logical clocks for timestamp log instead of data  Summary The operations in the disconnected or weakly connected network are often valuable in the real world. Many real-world applications require the operations of immediate reads and writes of a local replica even disconnected just as Git or Dropbox.'>
 <meta property='og:url' content='http://handora.github.io/post/2018/04/2018-04-12-bayou/'>
 <meta property='og:site_name' content='Never stop learning!'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Eventual Consistency'><meta property='article:published_time' content='2018-04-12T17:21:14&#43;08:00'/><meta property='article:modified_time' content='2018-04-12T17:21:14&#43;08:00'/><meta name='twitter:card' content='summary'>
@@ -129,35 +129,34 @@ ga('send', 'pageview');
 
 <h2 id="summary">Summary</h2>
 
-<p>The operations in disconnected or weakly connected nectwork are often
-valuable in real world. Many real world applications require the
+<p>The operations in the disconnected or weakly connected network are often
+valuable in the real world. Many real-world applications require the
 operations of immediate reads and writes of a local replica even
-disconected just as <code>Git</code> or <code>Dropbox</code>. So this paper proposes the idea
+disconnected just as <code>Git</code> or <code>Dropbox</code>. So this paper proposes the idea
 of <code>eventual consistency</code> which relays on some novel mechanisms in this
 paper to relay on the local database and conflict resolution to merge
 the logs.</p>
 
-<p>More precisely, Bayou is desgined for mobile network, and each server
-has its own database and logs for read and write. So the clients&rsquo; reads
-and writes just access to any local server&rsquo;s database which may have
+<p>More precisely, Bayou is designed for mobile network, and each server
+has its own database and logs for reads and writes. So the clients\&rsquo; reads
+and writes just access to any local server\&rsquo;s database which may have
 some uncommitted logs called <code>tentative logs</code>. Two different clients may
 have logs in different orders which may produce different outputs. So,
 conflicts should be solved between different devices. Firstly, Dayou
 uses global ordering to order the logs, which relays on
 <code>Lamport logical clock</code> with <code>undo and redo mechanisms</code> to acquire
-casual consistency. For example, when two server&rsquo;s ordering is
+casual consistency. For example, when two server\&rsquo;s ordering is
 different, one of two needs to rollback the previously executed writes
 and redo them in a global serialization order based on the timestamps.
-What&rsquo;s more, when the orders are same among each server, Bayou use user
+What\&rsquo;s more, when the orders are same for each server, Bayou use user
 defined <code>dependency check</code> and <code>conflict resolution</code> to solve the update
 conflicts for different conflict purposes. Moreover, Bayou uses a
-manually selected <code>primary</code> to take responsiblility the commiting
-updates for solving the problems that a long-delayed updates in a
-disconected device may rollback lots of logs and committed logs needs
+manually selected <code>primary</code> to take responsibility the committing
+updates for solving the problems that a long-delayed update in a disconnected device may rollback lots of logs and committed logs needs
 all of the services to establish the connections.</p>
 
-<p>On the implementation side, Bayou uses logs with version vectors insteaf
-of real data which we can relay on the prefix property to simplify
+<p>On the implementation side, Bayou uses logs with version vectors instead
+of real data which we can rely on the prefix property to simplify
 syncing. In addition, Bayou uses tuple stores similar to the database in
 <code>6.824 lab3</code> which just simplify the logs compaction.</p>
 
@@ -171,32 +170,32 @@ algorithm for solving the disconnected network.</p></li>
 <code>dependency check</code> and <code>conflict resolution</code>, which is more general
 than other algorithms at that time.</p></li>
 
-<li><p>Bayou uses logs insteaf of real data to simplify the syncing and
-rely on the <code>version vector</code> which is a interesting idea to me.
-It&rsquo;s more lightweight and simply.</p></li>
+<li><p>Bayou uses logs instead of real data to simplify the syncing and
+rely on the <code>version vector</code> which is an interesting idea to me.
+It\&rsquo;s more lightweight and simple.</p></li>
 </ul>
 
 <h3 id="weakness-of-the-paper">Weakness of the paper</h3>
 
 <ul>
-<li><p>The implementation of <code>undo and re-execution logs</code> isn&rsquo;t disccussed
+<li><p>The implementation of <code>undo and re-execution logs</code> isn&rsquo;t discussed
 in the paper which is an interesting point towards me.</p></li>
 
-<li><p>The <code>primary commit protocol</code> also needs more disccussions otherwise
-it may be unclear for those who has no background of this algorithm.</p></li>
+<li><p>The <code>primary commit protocol</code> also needs more discussions otherwise
+it may be unclear for those who have no background of this algorithm.</p></li>
 
-<li><p>The conference scheduler example is not user friendly, so some
+<li><p>The conference scheduler example is not user-friendly, so some
 improvements may be required.</p></li>
 
-<li><p>The <code>access control</code> part may be not too important in the paper.</p></li>
+<li><p>The <code>access control</code> part maybe not too important in the paper.</p></li>
 </ul>
 
 <h3 id="recommandation">Recommandation</h3>
 
 <p>We can use the timestamps for each tuple, so when there is a
 long-delayed updates, you can bypass the rollback by just appending it
-if the timestamps of the all elements in the updates are larger than the
-one in database. Which may occurs frequently in <code>google calendar
+if the timestamps of all elements in the updates are larger than the
+one in the database. Which may occur frequently in <code>google calendar
 Apps</code> in my view of point.</p>
 
 </div>
