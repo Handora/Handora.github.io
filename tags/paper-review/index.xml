@@ -6,10 +6,19 @@
     <description>Recent content in Paper Review on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Thu, 12 Apr 2018 17:21:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 21:45:24 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/tags/paper-review/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>In-memory OLTP and Future Improvements Paper review</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-13-future-oltp/</link>
+      <pubDate>Fri, 13 Apr 2018 21:45:24 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-13-future-oltp/</guid>
+      <description>OLTP Through the Looking Glass, and What We Found There Buzzwords  main memory transaction processing performance measurement new architecture  logless single thread transaction less  TPC-C benchmark cluster computing trend  shared disk shared memory shared nothing   Summary Currently, many history of the DBMSs is dealing with the limitation of the hardware. The architecture of the many current DBMSs is also similar to the architecture in the 1970s.</description>
+    </item>
     
     <item>
       <title>Bayou Paper Review</title>
