@@ -6,10 +6,19 @@
     <description>Recent content in TECH on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Fri, 13 Apr 2018 21:45:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Apr 2018 16:32:19 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 04 16 PNUTS</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-16-pnuts/</link>
+      <pubDate>Mon, 16 Apr 2018 16:32:19 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-16-pnuts/</guid>
+      <description>PNUTS: Yahoo!&amp;rsquo;s Hosted Data Serving Platform Buzzwords  data storage  hashed table ordered table  geographically distributed service automated load-balancing and failover relaxed consistency  per-record timeline consistency  asynchronous notification  Pub-Sub Message System Yahoo! Message Broker(YMB)  hosting various consistency guarantee  read-any read-critical read-latest write test-and-set-write  scatter-gather engine  Summary The paper aims at Web Application which requires scalability, short response time even geographically distributed, high availability, fault tolerance, and relaxed consistency.</description>
+    </item>
     
     <item>
       <title>In-memory OLTP and Future Improvements Paper review</title>

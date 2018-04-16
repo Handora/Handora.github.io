@@ -23,7 +23,7 @@
     <item>
       <title>Asynchronous Interface</title>
       <link>http://handora.github.io/tags/asynchronous-interface/</link>
-      <pubDate>Sun, 01 Apr 2018 18:00:25 +0800</pubDate>
+      <pubDate>Mon, 16 Apr 2018 16:32:19 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/asynchronous-interface/</guid>
       <description></description>
@@ -68,7 +68,7 @@
     <item>
       <title>Distributed System</title>
       <link>http://handora.github.io/tags/distributed-system/</link>
-      <pubDate>Thu, 12 Apr 2018 17:21:14 +0800</pubDate>
+      <pubDate>Mon, 16 Apr 2018 16:32:19 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/distributed-system/</guid>
       <description></description>
@@ -113,9 +113,18 @@
     <item>
       <title>Paper Review</title>
       <link>http://handora.github.io/tags/paper-review/</link>
-      <pubDate>Fri, 13 Apr 2018 21:45:24 +0800</pubDate>
+      <pubDate>Mon, 16 Apr 2018 16:32:19 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/paper-review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Relaxed Consistency</title>
+      <link>http://handora.github.io/tags/relaxed-consistency/</link>
+      <pubDate>Mon, 16 Apr 2018 16:32:19 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/relaxed-consistency/</guid>
       <description></description>
     </item>
     
