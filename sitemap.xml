@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://handora.github.io/post/2018/04/2018-04-17-llvm/</loc>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://handora.github.io/post/2018/04/2018-04-16-pnuts/</loc>
     <lastmod>2018-04-16T16:32:19+08:00</lastmod>
   </url>
@@ -124,25 +129,37 @@
   
   <url>
     <loc>http://handora.github.io/tags/in-memory-database-system/</loc>
-    <lastmod>2018-04-13T21:45:24+08:00</lastmod>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://handora.github.io/tags/llvm/</loc>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://handora.github.io/</loc>
-    <lastmod>2018-04-16T16:32:19+08:00</lastmod>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://handora.github.io/tags/paper-review/</loc>
-    <lastmod>2018-04-16T16:32:19+08:00</lastmod>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://handora.github.io/post/</loc>
-    <lastmod>2018-04-16T16:32:19+08:00</lastmod>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://handora.github.io/tags/query-processing/</loc>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -154,7 +171,7 @@
   
   <url>
     <loc>http://handora.github.io/categories/tech/</loc>
-    <lastmod>2018-04-16T16:32:19+08:00</lastmod>
+    <lastmod>2018-04-17T16:55:54+08:00</lastmod>
     <priority>0</priority>
   </url>
   

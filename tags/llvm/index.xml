@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLVM on Never stop learning!</title>
+    <link>http://handora.github.io/tags/llvm/</link>
+    <description>Recent content in LLVM on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Tue, 17 Apr 2018 16:55:54 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/llvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018 04 17 LLVM</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-17-llvm/</link>
+      <pubDate>Tue, 17 Apr 2018 16:55:54 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-17-llvm/</guid>
+      <description>Efficiently Compiling Efficient Query Plans for Modern Hardware Buzzwords  tuple at a time  Volcano iterator model MonetDB VectorWise, Peloton  operation at a time vector at a time Transpilation  Gcc compilation time may be long  JIT Compilatioon  push-based data-centric keep tuple in CPU register LLVM toolkit intermediate representation(IR)  HyPer\&amp;rsquo;s Adaptive Execution model  Summary For the in-memory DBMS, the CPU becomes the bottlenecks of CPU.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,19 @@
     <description>Recent content in Paper Review on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Mon, 16 Apr 2018 16:32:19 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Apr 2018 16:55:54 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/tags/paper-review/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 04 17 LLVM</title>
+      <link>http://handora.github.io/post/2018/04/2018-04-17-llvm/</link>
+      <pubDate>Tue, 17 Apr 2018 16:55:54 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/04/2018-04-17-llvm/</guid>
+      <description>Efficiently Compiling Efficient Query Plans for Modern Hardware Buzzwords  tuple at a time  Volcano iterator model MonetDB VectorWise, Peloton  operation at a time vector at a time Transpilation  Gcc compilation time may be long  JIT Compilatioon  push-based data-centric keep tuple in CPU register LLVM toolkit intermediate representation(IR)  HyPer\&amp;rsquo;s Adaptive Execution model  Summary For the in-memory DBMS, the CPU becomes the bottlenecks of CPU.</description>
+    </item>
     
     <item>
       <title>PNUTS Paper Review</title>
