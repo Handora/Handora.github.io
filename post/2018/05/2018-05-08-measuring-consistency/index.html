@@ -4,18 +4,28 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Efficiently Compiling Efficient Query Plans for Modern Hardware Buzzwords  tuple at a time  Volcano iterator model MonetDB VectorWise, Peloton  operation at a time vector at a time Transpilation  Gcc compilation time may be long  JIT Compilatioon  push-based data-centric keep tuple in CPU register LLVM toolkit intermediate representation(IR)  HyPer\&rsquo;s Adaptive Execution model  Summary For the in-memory DBMS, the CPU becomes the bottlenecks of CPU.'>
+<meta name='description' content='Existential Consistency: Measuring and Understanding Consistency at Facebook Buzzwords  a trade-off between stronger forms of consistency and higher performance properties
+ consistency monitoring system
+ practical consistency monitoring system principle consistency monitoring system  φ-consistency
+ Facebook&rsquo;s Replicated Storage
+ Database Two-Level Cache Graph data model  Local Consistency Models
+ Linearizability Per-Object Sequential Consistency Read-After-Write Consistency   Summary The paper introduces the storage for giant read-heavy sites(such as Facebook&rsquo;s TAO) and their technique to detect anomalies and monitor consistency.'>
 
-<meta property='og:title' content='Query Processing with LLVM Paper Review • Never stop learning!'>
-<meta property='og:description' content='Efficiently Compiling Efficient Query Plans for Modern Hardware Buzzwords  tuple at a time  Volcano iterator model MonetDB VectorWise, Peloton  operation at a time vector at a time Transpilation  Gcc compilation time may be long  JIT Compilatioon  push-based data-centric keep tuple in CPU register LLVM toolkit intermediate representation(IR)  HyPer\&rsquo;s Adaptive Execution model  Summary For the in-memory DBMS, the CPU becomes the bottlenecks of CPU.'>
-<meta property='og:url' content='http://handora.github.io/post/2018/04/2018-04-17-llvm/'>
+<meta property='og:title' content='2018 05 08 Extential Consistency Paper Review • Never stop learning!'>
+<meta property='og:description' content='Existential Consistency: Measuring and Understanding Consistency at Facebook Buzzwords  a trade-off between stronger forms of consistency and higher performance properties
+ consistency monitoring system
+ practical consistency monitoring system principle consistency monitoring system  φ-consistency
+ Facebook&rsquo;s Replicated Storage
+ Database Two-Level Cache Graph data model  Local Consistency Models
+ Linearizability Per-Object Sequential Consistency Read-After-Write Consistency   Summary The paper introduces the storage for giant read-heavy sites(such as Facebook&rsquo;s TAO) and their technique to detect anomalies and monitor consistency.'>
+<meta property='og:url' content='http://handora.github.io/post/2018/05/2018-05-08-measuring-consistency/'>
 <meta property='og:site_name' content='Never stop learning!'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='In Memory Database System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Query Processing'><meta property='article:tag' content='LLVM'><meta property='article:published_time' content='2018-04-17T16:55:54&#43;08:00'/><meta property='article:modified_time' content='2018-04-17T16:55:54&#43;08:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Consistency Monitoring'><meta property='article:published_time' content='2018-05-08T20:10:11&#43;08:00'/><meta property='article:modified_time' content='2018-05-08T20:10:11&#43;08:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.37-DEV" />
 
-  <title>Query Processing with LLVM Paper Review • Never stop learning!</title>
-  <link rel='canonical' href='http://handora.github.io/post/2018/04/2018-04-17-llvm/'>
+  <title>2018 05 08 Extential Consistency Paper Review • Never stop learning!</title>
+  <link rel='canonical' href='http://handora.github.io/post/2018/05/2018-05-08-measuring-consistency/'>
   
   
   <link rel='icon' href='/favicon-go.ico'>
@@ -68,7 +78,7 @@ ga('send', 'pageview');
   <header class='header entry-header'>
   <div class='container sep-after'>
     <div class='header-info'>
-      <h1 class='title'>Query Processing with LLVM Paper Review</h1>
+      <h1 class='title'>2018 05 08 Extential Consistency Paper Review</h1>
       
 
     </div>
@@ -83,7 +93,7 @@ ga('send', 'pageview');
   
 </svg>
 <span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2018-04-17T16:55:54&#43;08:00'>2018, Apr 17</time>
+  <time class='entry-date' datetime='2018-05-08T20:10:11&#43;08:00'>2018, May 08</time>
 </span>
 
   
@@ -110,84 +120,103 @@ ga('send', 'pageview');
   <div class='container entry-content'>
   
 
-<h1 id="efficiently-compiling-efficient-query-plans-for-modern-hardware">Efficiently Compiling Efficient Query Plans for Modern Hardware</h1>
+<h1 id="existential-consistency-measuring-and-understanding-consistency-at-facebook">Existential Consistency: Measuring and Understanding Consistency at Facebook</h1>
 
 <h2 id="buzzwords">Buzzwords</h2>
 
 <ul>
-<li>tuple at a time
+<li><p>a trade-off between stronger forms of consistency and higher
+performance properties</p></li>
+
+<li><p>consistency monitoring system</p>
 
 <ol>
-<li>Volcano iterator model</li>
-<li>MonetDB</li>
-<li>VectorWise, Peloton</li>
+<li>practical consistency monitoring system</li>
+<li>principle consistency monitoring system</li>
 </ol></li>
-<li>operation at a time</li>
-<li>vector at a time</li>
-<li>Transpilation
+
+<li><p>φ-consistency</p></li>
+
+<li><p>Facebook&rsquo;s Replicated Storage</p>
 
 <ol>
-<li>Gcc</li>
-<li>compilation time may be long</li>
+<li>Database</li>
+<li>Two-Level Cache</li>
+<li>Graph data model</li>
 </ol></li>
-<li>JIT Compilatioon
+
+<li><p>Local Consistency Models</p>
 
 <ol>
-<li>push-based</li>
-<li>data-centric</li>
-<li>keep tuple in CPU register</li>
-<li>LLVM toolkit</li>
-<li>intermediate representation(IR)</li>
+<li>Linearizability</li>
+<li>Per-Object Sequential Consistency</li>
+<li>Read-After-Write Consistency</li>
 </ol></li>
-<li>HyPer\&rsquo;s Adaptive Execution model</li>
 </ul>
 
 <h2 id="summary">Summary</h2>
 
-<p>For the in-memory DBMS, the CPU becomes the bottlenecks of CPU. So the
-paper introduces a novel compilation strategy that translates a query
-into intermediate representation through LLVM to obtain nice code
-locality and predictable branch. Moreover, the paper uses the new
-technic called <code>pipline breaker</code> to keep a tuple in a CPU register as
-long as possible.</p>
+<p>The paper introduces the storage for giant read-heavy sites(such as
+Facebook&rsquo;s <code>TAO</code>) and their technique to detect anomalies and monitor
+consistency.</p>
 
-<p>The paper proposes a query compilation strategy that uses push-based
-algorithm and relies on LLVM to compiled queries into native machine
-code. The paper also proposes the idea of <code>pipline breaker</code> means the
-algebraic operator <code>for a given input side if it takes an incoming
-tuple out of the CPU registers</code>. If we can maximize the region between
-the <code>pipline breakers</code>, then we can obtain better performance.</p>
+<p>The Facebook&rsquo;s replicated storage model is a <code>graph</code> data model
+database and two-level cache with write/read through strategy. The reads
+process down locally with read through and the writes are routed to the
+master database and updates other regions asynchronously. And the
+operation According to the paper, the system maintains per-object
+sequential consistency, read-after-write consistency within a cache and
+otherwise eventually consistent. The overall system is based on weak
+consistency while imposes stronger consistency if the operation is only
+in the cache. So if the cache hits are high enough, we can expect nice
+performance and consistency on this system.</p>
 
-<p>There are two code generation plans. One is transpilation which is based
-on some off-shelf compiler like <code>Gcc</code> while the compilation time may be
-high for some system calls like <code>exec</code> and <code>fork</code>. The second one is JIT
-compilation like <code>LLVM</code> which relies on IR similar to assembly to be
-quickly compiled into native code(just like JavaCode). Moreover, the
-LLVM and C++ code can be used together with some hard to write code with
-C++ code and hot path with LLVM to both simplify the code logic and
-improve the performance.</p>
+<p>The paper also introduces two consistency monitoring system. The first
+one is principle consistency monitor. It first picks a subset of all
+objects, then records the operations on the fly and finally offline
+preprocesses it and detects anomalies based on the logs. According to
+the pseudo code in the paper, the checker maintains a graph whose
+vertices are operations and edges are constrains, so we can detect the
+error by just checking for circles. The paper introduces two anomalies
+based on this strategy, namely stale read anomaly and total order
+anomaly.</p>
+
+<p>The second checker is practical consistency monitor. It assigns
+real-time reads to replicas and checks for correctness. The track two
+types: φ(G)- consistency and φ(Ri)-consistency. The second one is more
+lightweight than the first one and Facebook uses it to detect real-time
+anomalies.</p>
+
+<p>The result of the monitoring is surprising. Tao&rsquo;s anomaly rate is much
+lower than expected. So, the design of Tao is high performance with
+remarkable high consistency.</p>
 
 <h3 id="strength-of-the-paper">Strength of the paper</h3>
 
 <ul>
-<li><p>A cool idea about how to improve the performance in terms of
-in-memory DBMS.</p></li>
+<li><p>Two consistency monitoring systems are awesome design and give nice
+hints between performance and consistency.</p></li>
 
-<li><p>The idea of <code>pipeline breaker</code> is awesome which emphasis the
-registers and code locality to improve the performance.</p></li>
+<li><p>The architecture and tradeoff between performance and consistency of
+Tao give us a view of how to design the system for large-scale
+service.</p></li>
 </ul>
 
 <h3 id="weakness-of-the-paper">Weakness of the paper</h3>
 
 <ul>
-<li>Many LLVM codes may need detail explanations.</li>
+<li><p>The linearizability is not true local consistency model, some
+details may need more explanation.</p></li>
+
+<li><p>The practical checker may need some examples of what anomalies are
+found.</p></li>
 </ul>
 
 <h3 id="paper-learned">Paper learned</h3>
 
 <ul>
-<li>The idea of performance improvements should be changed in terms of
-in-memory DBMS.</li>
+<li>A new idea on how to choose between high performance and strong
+consistency.</li>
 </ul>
 
 </div>
@@ -211,7 +240,7 @@ in-memory DBMS.</li>
   
 </svg>
 </span>
-  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/in-memory-database-system'>In Memory Database System</a>, <a class='tag' href='/tags/paper-review'>Paper Review</a>, <a class='tag' href='/tags/query-processing'>Query Processing</a>, <a class='tag' href='/tags/llvm'>LLVM</a></div>
+  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/distributed-system'>Distributed System</a>, <a class='tag' href='/tags/paper-review'>Paper Review</a>, <a class='tag' href='/tags/consistency-monitoring'>Consistency Monitoring</a></div>
 
   </div>
 </footer>
@@ -221,7 +250,7 @@ in-memory DBMS.</li>
 
 <nav class='entry-nav'>
   <div class='container'><div class='prev-entry sep-before'>
-      <a href='/post/2018/04/2018-04-16-pnuts/'>
+      <a href='/post/2018/04/2018-04-17-llvm/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -229,17 +258,7 @@ in-memory DBMS.</li>
   
 </svg>
  Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>PNUTS Paper Review</a>
-    </div><div class='next-entry sep-before'>
-      <a href='/post/2018/05/2018-05-08-measuring-consistency/'>
-        <span class='screen-reader-text'>Next post: </span>2018 05 08 Extential Consistency Paper Review<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader-text'>Previous post: </span>Query Processing with LLVM Paper Review</a>
     </div></div>
 </nav>
 

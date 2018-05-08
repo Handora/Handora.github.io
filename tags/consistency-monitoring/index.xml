@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consistency Monitoring on Never stop learning!</title>
+    <link>http://handora.github.io/tags/consistency-monitoring/</link>
+    <description>Recent content in Consistency Monitoring on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Tue, 08 May 2018 20:10:11 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/consistency-monitoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018 05 08 Extential Consistency Paper Review</title>
+      <link>http://handora.github.io/post/2018/05/2018-05-08-measuring-consistency/</link>
+      <pubDate>Tue, 08 May 2018 20:10:11 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/05/2018-05-08-measuring-consistency/</guid>
+      <description>Existential Consistency: Measuring and Understanding Consistency at Facebook Buzzwords  a trade-off between stronger forms of consistency and higher performance properties
+ consistency monitoring system
+ practical consistency monitoring system principle consistency monitoring system  φ-consistency
+ Facebook&amp;rsquo;s Replicated Storage
+ Database Two-Level Cache Graph data model  Local Consistency Models
+ Linearizability Per-Object Sequential Consistency Read-After-Write Consistency   Summary The paper introduces the storage for giant read-heavy sites(such as Facebook&amp;rsquo;s TAO) and their technique to detect anomalies and monitor consistency.</description>
+    </item>
+    
+  </channel>
+</rss>
