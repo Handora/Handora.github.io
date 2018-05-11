@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://handora.github.io/post/2018/05/2018-05-11-p2p-chord/</loc>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://handora.github.io/post/2018/05/2018-05-08-measuring-consistency/</loc>
     <lastmod>2018-05-08T20:10:11+08:00</lastmod>
   </url>
@@ -104,6 +109,12 @@
   </url>
   
   <url>
+    <loc>http://handora.github.io/tags/distributed-hashing-table/</loc>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://handora.github.io/tags/distributed-share-memory/</loc>
     <lastmod>2018-03-26T22:18:15+08:00</lastmod>
     <priority>0</priority>
@@ -111,7 +122,7 @@
   
   <url>
     <loc>http://handora.github.io/tags/distributed-system/</loc>
-    <lastmod>2018-05-08T20:10:11+08:00</lastmod>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -152,19 +163,25 @@
   
   <url>
     <loc>http://handora.github.io/</loc>
-    <lastmod>2018-05-08T20:10:11+08:00</lastmod>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://handora.github.io/tags/paper-review/</loc>
-    <lastmod>2018-05-08T20:10:11+08:00</lastmod>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://handora.github.io/tags/peer-to-peer/</loc>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://handora.github.io/post/</loc>
-    <lastmod>2018-05-08T20:10:11+08:00</lastmod>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -182,7 +199,7 @@
   
   <url>
     <loc>http://handora.github.io/categories/tech/</loc>
-    <lastmod>2018-05-08T20:10:11+08:00</lastmod>
+    <lastmod>2018-05-11T15:54:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   

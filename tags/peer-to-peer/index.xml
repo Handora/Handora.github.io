@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peer-to-peer on Never stop learning!</title>
+    <link>http://handora.github.io/tags/peer-to-peer/</link>
+    <description>Recent content in Peer-to-peer on Never stop learning!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Handora</copyright>
+    <lastBuildDate>Fri, 11 May 2018 15:54:01 +0800</lastBuildDate>
+    
+	<atom:link href="http://handora.github.io/tags/peer-to-peer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chord: Scable P2P Lookup Service Paper review</title>
+      <link>http://handora.github.io/post/2018/05/2018-05-11-p2p-chord/</link>
+      <pubDate>Fri, 11 May 2018 15:54:01 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/05/2018-05-11-p2p-chord/</guid>
+      <description>Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications Buzzwords  P2P, DHT Consistent Hashing Finger Table Automatically Load Balance Stabilization  Summary The paper introduces the lookup service in the P2P applications named Chord. The Chord introduces the consistent hashing algorithm for each node only needs to remember O(log N) other nodes and resolves all lookup via O(log N) messages. What\&amp;rsquo;s more, it can also maintain the information as nodes join and leave the system in no more than n O(log^2^ N) messages even concurrently.</description>
+    </item>
+    
+  </channel>
+</rss>

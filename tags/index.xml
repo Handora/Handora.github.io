@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>Distributed Hashing Table</title>
+      <link>http://handora.github.io/tags/distributed-hashing-table/</link>
+      <pubDate>Fri, 11 May 2018 15:54:01 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/distributed-hashing-table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Distributed Share Memory</title>
       <link>http://handora.github.io/tags/distributed-share-memory/</link>
       <pubDate>Mon, 26 Mar 2018 22:18:15 +0800</pubDate>
@@ -77,7 +86,7 @@
     <item>
       <title>Distributed System</title>
       <link>http://handora.github.io/tags/distributed-system/</link>
-      <pubDate>Tue, 08 May 2018 20:10:11 +0800</pubDate>
+      <pubDate>Fri, 11 May 2018 15:54:01 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/distributed-system/</guid>
       <description></description>
@@ -131,9 +140,18 @@
     <item>
       <title>Paper Review</title>
       <link>http://handora.github.io/tags/paper-review/</link>
-      <pubDate>Tue, 08 May 2018 20:10:11 +0800</pubDate>
+      <pubDate>Fri, 11 May 2018 15:54:01 +0800</pubDate>
       
       <guid>http://handora.github.io/tags/paper-review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Peer-to-peer</title>
+      <link>http://handora.github.io/tags/peer-to-peer/</link>
+      <pubDate>Fri, 11 May 2018 15:54:01 +0800</pubDate>
+      
+      <guid>http://handora.github.io/tags/peer-to-peer/</guid>
       <description></description>
     </item>
     

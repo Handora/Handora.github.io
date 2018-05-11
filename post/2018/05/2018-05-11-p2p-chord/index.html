@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications Buzzwords  P2P, DHT Consistent Hashing Finger Table Automatically Load Balance Stabilization  Summary The paper introduces the lookup service in the P2P applications named Chord. The Chord introduces the consistent hashing algorithm for each node only needs to remember O(log N) other nodes and resolves all lookup via O(log N) messages. What\&rsquo;s more, it can also maintain the information as nodes join and leave the system in no more than n O(log^2^ N) messages even concurrently.'>
+
+<meta property='og:title' content='Chord: Scable P2P Lookup Service Paper review • Never stop learning!'>
+<meta property='og:description' content='Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications Buzzwords  P2P, DHT Consistent Hashing Finger Table Automatically Load Balance Stabilization  Summary The paper introduces the lookup service in the P2P applications named Chord. The Chord introduces the consistent hashing algorithm for each node only needs to remember O(log N) other nodes and resolves all lookup via O(log N) messages. What\&rsquo;s more, it can also maintain the information as nodes join and leave the system in no more than n O(log^2^ N) messages even concurrently.'>
+<meta property='og:url' content='http://handora.github.io/post/2018/05/2018-05-11-p2p-chord/'>
+<meta property='og:site_name' content='Never stop learning!'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Distributed Hashing Table'><meta property='article:tag' content='Peer-to-peer'><meta property='article:published_time' content='2018-05-11T15:54:01&#43;08:00'/><meta property='article:modified_time' content='2018-05-11T15:54:01&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.37-DEV" />
+
+  <title>Chord: Scable P2P Lookup Service Paper review • Never stop learning!</title>
+  <link rel='canonical' href='http://handora.github.io/post/2018/05/2018-05-11-p2p-chord/'>
+  
+  
+  <link rel='icon' href='/favicon-go.ico'>
+<link rel='stylesheet' href='/assets/css/main.9efb8af6.css'><link rel='stylesheet' href='/css/custom.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-116358548-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/categories/tech/'>TECH</a>
+      </li><li class='item'>
+        <a href='https://github.com/handora/handora.github.io'>Repo</a>
+      </li><li class='item'>
+        <a href='/aboutme'>Me</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Never stop learning!</p><p class='desc site-desc'>Study now!</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Chord: Scable P2P Lookup Service Paper review</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-05-11T15:54:01&#43;08:00'>2018, May 11</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+4 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<h1 id="chord-a-scalable-peer-to-peer-lookup-service-for-internet-applications">Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications</h1>
+
+<h2 id="buzzwords">Buzzwords</h2>
+
+<ul>
+<li>P2P, DHT</li>
+<li>Consistent Hashing</li>
+<li>Finger Table</li>
+<li>Automatically Load Balance</li>
+<li>Stabilization</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>The paper introduces the lookup service in the P2P applications named
+<code>Chord</code>. The <code>Chord</code> introduces the consistent hashing algorithm for
+each node only needs to remember O(log N) other nodes and resolves all
+lookup via O(log N) messages. What\&rsquo;s more, it can also maintain the
+information as nodes join and leave the system in no more than n
+O(log^2^ N) messages even concurrently.</p>
+
+<p>The <code>Chord</code> assigns each node and key with an m-bit identifier using
+SHA-1 and each key are assigned to nodes when successor(key) = node in
+clockwise. In order to lookup the key, we should forward and find the
+key to known information. The paper uses the <code>finger table</code> which keeps
+successor of nodes exponentially further away. The pseudocode is shown
+below. In the above algorithm, every forward take almost half way of the
+target, just like binary search in terms of consistency hashing.</p>
+
+<pre><code>// The pseudocode to find the successor node of an identifier . Remote procedure calls and variable lookups are precede-d by the remote node.
+// ask node n to find id's successor
+n.find_predecessor(id):
+  n' = find_predecessor(id)
+  return n'.successor
+
+// ask node n to find id's predecessor
+n.find_predecessor(id):
+  n' = n
+  while (id ∉ (n', n'.successor):
+    n' = n'.closest_preceding_finger(id)
+  return n'
+
+// return closest_preceding_finger(id)
+n.closest_preceding_finer(id):
+  for i = m downto 1
+    if (finger[i].node ∈ (n, id)):
+      return finger[i].node
+    return n
+</code></pre>
+
+<p>When a new node joins the system. Instead of finding all fingers\&rsquo;
+successor using the <code>find_successor</code> shown above, we can do a little
+optimization just like pseudocode shown below, which is O(log^2^ N)
+according to the paper. (If two fingers\&rsquo; interval contains no nodes,
+the two fingers\&rsquo; node is the same.)</p>
+
+<pre><code>// node n joins the network
+// n' is an arbitrary node already in the network
+n.join(n'):
+  if (n'):
+    init_finger_table(n')
+    update_others()
+    // move keys in (predecessor, n] from successor
+  else: // n is only node in the network
+    for i = 1 to m:
+      finger[i].node = n
+    predecessor = n
+
+// initialize finger table of local node
+// n' is an arbitrary node already in the network
+n.init_finger_table(n'):
+  finger[1].node = n'.find_successor(finger[1].start)
+  predecessor = successor.predecessor
+  successor.predecessor = n
+  for i = 1 to m - 1:
+    if (finger[i+1].start ∈ [n, finger[i].node)):
+      finger[i+1].node = finger[i].node
+    else:
+      finger[i+1].node n'.find_sucessor(finger[i+1].start)
+
+// update all nodes whose finger
+// tables should refer to n
+n.update_others():
+  for i = 1 to m:
+    // find last node p whse i^th finger might be n
+    p = find_predecessor(n - 2^(i-1))
+    p.update finger_table(n, i)
+
+// if s is i^th finger of n, update n's finger table with s
+n.update_finger_table(s, i):
+  if (s ∈ [n, finger[i].node)):
+    finger[i].node = s
+    p = predecessor
+    p.update_finger_table(s, i);
+</code></pre>
+
+<p>In terms of concurrent joins, the paper introduces a new algorithm to
+replace the above one, which is called <code>Stabilization</code>. The algorithm is
+just periodically asking its successor who its predecessor is, and If
+that node is closer to you, switch to that one. And after some time, all
+nodes will be correct according to the paper. Moreover, the nodes should
+periodically refresh its finger tables for correctness. The pseudocode
+is shown below.</p>
+
+<pre><code>n.join(n'):
+  predecessor = nil
+  successor = n'.find_successor(n)
+
+// periodically verify n's immediate successor,
+// and tell the successor about n
+n.stabilize():
+  x = successor.predecessor
+  if (x ∈ (n, successor)):
+    successor = x
+  successor.notify(n)
+
+// n' thinks it might be our predecessor
+n.notify(n'):
+  if (predecessor is nil or n' ∈ (predecessor, n)):
+    predecessor = n'
+
+// periodically refresh finger table entries
+n.fix_fingers():
+  i = random index &gt; 1 into finger[]
+finger[i].node = find_successor(finger[i].start)
+</code></pre>
+
+<p>Finally, nodes failure needs to be solved. As we all know, dealing with
+unreachable nodes during routing is important in reality. The paper uses
+successor-list, so lookup first finds live successor &gt;= key, or forward
+to successor &lt; key if possible. The paper says it can be routed
+successfully with high probability.</p>
+
+<p>Above all, although the <code>Chord</code> guarantees weak consistency and alive
+data, it keeps less information needed to be kept, fewer messages needed
+to be sent and eventually consistency guarantees. The distributed hash
+table exposes a powerful design in P2P systems.</p>
+
+<h3 id="strength-of-the-paper">Strength of the paper</h3>
+
+<ul>
+<li><p>The paper introduces the P2P system with distributed hashing table.
+It is nice for load balance problem with less information stored.</p></li>
+
+<li><p>The paper uses <code>finger table</code> to store the minimal necessary
+information to lookup instead of storing all information to perform
+a binary search style lookup.</p></li>
+</ul>
+
+<h3 id="weakness-of-the-paper">Weakness of the paper</h3>
+
+<ul>
+<li>No introduction to security problem such as malicious nodes which
+may be common in the P2P system.</li>
+</ul>
+
+<h3 id="suggestion-to-the-paper">Suggestion to the paper</h3>
+
+<ul>
+<li>We can make use of geographic information to decided the closest
+available nodes.</li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  <div class='categories'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/tech'>TECH</a></div>
+<div class='tags'>
+  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+</span>
+  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/distributed-system'>Distributed System</a>, <a class='tag' href='/tags/paper-review'>Paper Review</a>, <a class='tag' href='/tags/distributed-hashing-table'>Distributed Hashing Table</a>, <a class='tag' href='/tags/peer-to-peer'>Peer-to-peer</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/post/2018/05/2018-05-08-measuring-consistency/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Existential Consistency Paper Review</a>
+    </div></div>
+</nav>
+
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-handora-me" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/AllenHandora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:qcdsr970209@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://gitlab.com/handora' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Gitlab account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p>Handora</p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script src='/assets/js/main.89545a27.js'></script><script src='/js/custom.js'></script></body>
+
+</html>
+
