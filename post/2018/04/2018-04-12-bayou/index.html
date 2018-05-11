@@ -138,17 +138,17 @@ paper to relay on the local database and conflict resolution to merge
 the logs.</p>
 
 <p>More precisely, Bayou is designed for mobile network, and each server
-has its own database and logs for reads and writes. So the clients\&rsquo; reads
-and writes just access to any local server\&rsquo;s database which may have
+has its own database and logs for reads and writes. So the clients&rsquo; reads
+and writes just access to any local server&rsquo;s database which may have
 some uncommitted logs called <code>tentative logs</code>. Two different clients may
 have logs in different orders which may produce different outputs. So,
 conflicts should be solved between different devices. Firstly, Dayou
 uses global ordering to order the logs, which relays on
 <code>Lamport logical clock</code> with <code>undo and redo mechanisms</code> to acquire
-casual consistency. For example, when two server\&rsquo;s ordering is
+casual consistency. For example, when two server&rsquo;s ordering is
 different, one of two needs to rollback the previously executed writes
 and redo them in a global serialization order based on the timestamps.
-What\&rsquo;s more, when the orders are same for each server, Bayou use user
+What&rsquo;s more, when the orders are same for each server, Bayou use user
 defined <code>dependency check</code> and <code>conflict resolution</code> to solve the update
 conflicts for different conflict purposes. Moreover, Bayou uses a
 manually selected <code>primary</code> to take responsibility the committing
@@ -172,7 +172,7 @@ than other algorithms at that time.</p></li>
 
 <li><p>Bayou uses logs instead of real data to simplify the syncing and
 rely on the <code>version vector</code> which is an interesting idea to me.
-It\&rsquo;s more lightweight and simple.</p></li>
+It&rsquo;s more lightweight and simple.</p></li>
 </ul>
 
 <h3 id="weakness-of-the-paper">Weakness of the paper</h3>
