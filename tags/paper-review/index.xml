@@ -6,10 +6,25 @@
     <description>Recent content in Paper Review on Never stop learning!</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Handora</copyright>
-    <lastBuildDate>Fri, 11 May 2018 15:54:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 May 2018 15:35:50 +0800</lastBuildDate>
     
 	<atom:link href="http://handora.github.io/tags/paper-review/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dynamo Paper Review</title>
+      <link>http://handora.github.io/post/2018/05/2018-05-16-dynamo/</link>
+      <pubDate>Wed, 16 May 2018 15:35:50 +0800</pubDate>
+      
+      <guid>http://handora.github.io/post/2018/05/2018-05-16-dynamo/</guid>
+      <description>Dynamo: Amazon&amp;rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture Consistent Hashing  virtual nodes  Quorum-like technique  R + W &amp;gt; N  Decentralized replica synchronization protocol
+ anti-entropy (replica synchronization) protocol
+a big word for synchronizing two replicas
+ Merkle tree
+  Object versioning
+ syntactic reconciliation
+new versions subsume the previous version(s), and the system itself can determine the authoritative version</description>
+    </item>
     
     <item>
       <title>Chord: Scable P2P Lookup Service Paper Review</title>
