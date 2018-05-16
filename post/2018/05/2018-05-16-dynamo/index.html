@@ -230,7 +230,9 @@ availability(&ldquo;always writable&rdquo;) instead of consistency and durabilit
 
 <p>The paper introduces the architecture in several core components:</p>
 
-<h5 id="partition-replication">Partition &amp;&amp; Replication</h5>
+<ul>
+<li>Partition &amp;&amp; Replication</li>
+</ul>
 
 <p>The Dynamo uses consistency hashing to partition the storage with
 virtual nodes for uniform distribution. Moreover, the each hashed key is
@@ -243,7 +245,9 @@ new nodes join/leave the system. Dynamo treats all failure as temporary
 and only make changes when explicitly add/remove nodes and the operation should take
 a long time.</p>
 
-<h5 id="data-versioning">Data Versioning</h5>
+<ul>
+<li>Data Versioning</li>
+</ul>
 
 <p>Because of eventual consistency and always writable requirements,
 divergent replicas need to be resolved. Dynamo allows multiple versions
@@ -252,7 +256,9 @@ resolution to resolve the conflicts. For example, the case of shopping
 cart uses union which may result in no lost &lsquo;add to chart&rsquo; while may
 cause deleted one to resurface.</p>
 
-<h5 id="system-api">System API</h5>
+<ul>
+<li>System API</li>
+</ul>
 
 <p>Dynamo only supports <code>put/get</code>. There are two ways of routing. The first
 one is using <code>load balancer</code>, which transfer the request to load
@@ -279,7 +285,9 @@ may result in some inconsistency while improving the availability.</p>
 <code>Merkle tree</code> (hashing based tree) and <code>gossip protocol</code> as the anti-entropy
 protocol, which can reduce the data necessary for transfer.</p>
 
-<h5 id="membership">Membership</h5>
+<ul>
+<li>Membership</li>
+</ul>
 
 <p>According to the paper, a gossip-based protocol propagates membership
 changes and maintains an eventually consistent view of membership. So
@@ -287,7 +295,9 @@ some inconsistency may be introduced. For example, the deleted server
 might get puts meant for its replacement and added server might miss
 some puts because not known to the coordinator.</p>
 
-<h5 id="design-experience">Design experience</h5>
+<ul>
+<li>Design experience</li>
+</ul>
 
 <p>Dynamo&rsquo;s consistent hashing design experiences evolution. The old
 scheme is randomly partitioned which requires the scan(O(n)) to split the
