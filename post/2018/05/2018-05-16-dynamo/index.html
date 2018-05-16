@@ -5,21 +5,13 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture Consistent Hashing  virtual nodes  Quorum-like technique  R &#43; W &gt; N  Decentralized replica synchronization protocol
- anti-entropy (replica synchronization) protocol
-a big word for synchronizing two replicas
- Merkle tree
-  Object versioning
- syntactic reconciliation
-new versions subsume the previous version(s), and the system itself can determine the authoritative version'>
+ anti-entropy (replica synchronization) protocol a big word for synchronizing two replicas Merkle tree  Object versioning
+ syntactic reconciliation new versions subsume the previous version(s), and the system itself can determine the authoritative version semantic reconciliation the reconciliation in order to collapse multiple branches of data evolution back into one vector clock  Gossip-based distributed failure detection and membership protocol'>
 
 <meta property='og:title' content='Dynamo Paper Review • Never stop learning!'>
 <meta property='og:description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture Consistent Hashing  virtual nodes  Quorum-like technique  R &#43; W &gt; N  Decentralized replica synchronization protocol
- anti-entropy (replica synchronization) protocol
-a big word for synchronizing two replicas
- Merkle tree
-  Object versioning
- syntactic reconciliation
-new versions subsume the previous version(s), and the system itself can determine the authoritative version'>
+ anti-entropy (replica synchronization) protocol a big word for synchronizing two replicas Merkle tree  Object versioning
+ syntactic reconciliation new versions subsume the previous version(s), and the system itself can determine the authoritative version semantic reconciliation the reconciliation in order to collapse multiple branches of data evolution back into one vector clock  Gossip-based distributed failure detection and membership protocol'>
 <meta property='og:url' content='http://handora.github.io/post/2018/05/2018-05-16-dynamo/'>
 <meta property='og:site_name' content='Never stop learning!'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Always Writable'><meta property='article:tag' content='Eventual Consistency'><meta property='article:tag' content='Application-level Conflict resolution'><meta property='article:published_time' content='2018-05-16T15:35:50&#43;08:00'/><meta property='article:modified_time' content='2018-05-16T15:35:50&#43;08:00'/><meta name='twitter:card' content='summary'>
@@ -142,27 +134,21 @@ ga('send', 'pageview');
 <li><p>Decentralized replica synchronization protocol</p>
 
 <ol>
-<li><p>anti-entropy (replica synchronization) protocol</p>
-
-<p>a big word for synchronizing two replicas</p></li>
-
-<li><p>Merkle tree</p></li>
+<li>anti-entropy (replica synchronization) protocol
+a big word for synchronizing two replicas</li>
+<li>Merkle tree</li>
 </ol></li>
 
 <li><p>Object versioning</p>
 
 <ol>
-<li><p>syntactic reconciliation</p>
-
-<p>new versions subsume the previous version(s), and the system
-itself can determine the authoritative version</p></li>
-
-<li><p>semantic reconciliation</p>
-
-<p>the reconciliation in order to collapse multiple branches of
-data evolution back into one</p></li>
-
-<li><p>vector clock</p></li>
+<li>syntactic reconciliation
+new versions subsume the previous version(s), and the system
+itself can determine the authoritative version</li>
+<li>semantic reconciliation
+the reconciliation in order to collapse multiple branches of
+data evolution back into one</li>
+<li>vector clock</li>
 </ol></li>
 
 <li><p>Gossip-based distributed failure detection and membership protocol</p></li>
@@ -185,9 +171,8 @@ data evolution back into one</p></li>
 
 <li><p>Stage event-based architecture(SEDA)</p></li>
 
-<li><p>Dynamo&rsquo;s partitioning scheme&rsquo;s three stages</p>
-
-<p><img src="../Pictures/dynamo-uniform-distribution.png" alt="dynamo uniform ditribution" /></p>
+<li><p>Dynamo&rsquo;s partitioning scheme&rsquo;s three stages
+<img src="../Pictures/dynamo-uniform-distribution.png" alt="dynamo uniform ditribution" /></p>
 
 <ol>
 <li>T random tokens per node and partition by token value</li>
