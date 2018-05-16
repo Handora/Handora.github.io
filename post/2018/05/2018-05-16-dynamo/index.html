@@ -4,14 +4,28 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture Consistent Hashing  virtual nodes  Quorum-like technique  R &#43; W &gt; N  Decentralized replica synchronization protocol
- anti-entropy (replica synchronization) protocol a big word for synchronizing two replicas Merkle tree  Object versioning
- syntactic reconciliation new versions subsume the previous version(s), and the system itself can determine the authoritative version semantic reconciliation the reconciliation in order to collapse multiple branches of data evolution back into one vector clock  Gossip-based distributed failure detection and membership protocol'>
+<meta name='description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture
+ Consistent Hashing
+ virtual nodes  Quorum-like technique
+ R &#43; W &gt; N  Decentralized replica synchronization protocol
+ anti-entropy (replica synchronization) protocol
+a big word for synchronizing two replicas
+ Merkle tree
+  Object versioning
+ syntactic reconciliation
+new versions subsume the previous version(s), and the system itself can determine the authoritative version'>
 
 <meta property='og:title' content='Dynamo Paper Review • Never stop learning!'>
-<meta property='og:description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture Consistent Hashing  virtual nodes  Quorum-like technique  R &#43; W &gt; N  Decentralized replica synchronization protocol
- anti-entropy (replica synchronization) protocol a big word for synchronizing two replicas Merkle tree  Object versioning
- syntactic reconciliation new versions subsume the previous version(s), and the system itself can determine the authoritative version semantic reconciliation the reconciliation in order to collapse multiple branches of data evolution back into one vector clock  Gossip-based distributed failure detection and membership protocol'>
+<meta property='og:description' content='Dynamo: Amazon&rsquo;s Highly Available Key-value Store Buzzwords  Highly decentralized, loosely coupled, service-oriented architecture
+ Consistent Hashing
+ virtual nodes  Quorum-like technique
+ R &#43; W &gt; N  Decentralized replica synchronization protocol
+ anti-entropy (replica synchronization) protocol
+a big word for synchronizing two replicas
+ Merkle tree
+  Object versioning
+ syntactic reconciliation
+new versions subsume the previous version(s), and the system itself can determine the authoritative version'>
 <meta property='og:url' content='http://handora.github.io/post/2018/05/2018-05-16-dynamo/'>
 <meta property='og:site_name' content='Never stop learning!'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Distributed System'><meta property='article:tag' content='Paper Review'><meta property='article:tag' content='Always Writable'><meta property='article:tag' content='Eventual Consistency'><meta property='article:tag' content='Application-level Conflict resolution'><meta property='article:published_time' content='2018-05-16T15:35:50&#43;08:00'/><meta property='article:modified_time' content='2018-05-16T15:35:50&#43;08:00'/><meta name='twitter:card' content='summary'>
@@ -119,13 +133,15 @@ ga('send', 'pageview');
 <h2 id="buzzwords">Buzzwords</h2>
 
 <ul>
-<li>Highly decentralized, loosely coupled, service-oriented architecture</li>
-<li>Consistent Hashing
+<li><p>Highly decentralized, loosely coupled, service-oriented architecture</p></li>
+
+<li><p>Consistent Hashing</p>
 
 <ol>
 <li>virtual nodes</li>
 </ol></li>
-<li>Quorum-like technique
+
+<li><p>Quorum-like technique</p>
 
 <ol>
 <li>R + W &gt; N</li>
@@ -134,21 +150,27 @@ ga('send', 'pageview');
 <li><p>Decentralized replica synchronization protocol</p>
 
 <ol>
-<li>anti-entropy (replica synchronization) protocol
-a big word for synchronizing two replicas</li>
-<li>Merkle tree</li>
+<li><p>anti-entropy (replica synchronization) protocol</p>
+
+<p>a big word for synchronizing two replicas</p></li>
+
+<li><p>Merkle tree</p></li>
 </ol></li>
 
 <li><p>Object versioning</p>
 
 <ol>
-<li>syntactic reconciliation
-new versions subsume the previous version(s), and the system
-itself can determine the authoritative version</li>
-<li>semantic reconciliation
-the reconciliation in order to collapse multiple branches of
-data evolution back into one</li>
-<li>vector clock</li>
+<li><p>syntactic reconciliation</p>
+
+<p>new versions subsume the previous version(s), and the system
+itself can determine the authoritative version</p></li>
+
+<li><p>semantic reconciliation</p>
+
+<p>the reconciliation in order to collapse multiple branches of
+data evolution back into one</p></li>
+
+<li><p>vector clock</p></li>
 </ol></li>
 
 <li><p>Gossip-based distributed failure detection and membership protocol</p></li>
@@ -175,36 +197,39 @@ data evolution back into one</li>
 <img src="../Pictures/dynamo-uniform-distribution.png" alt="dynamo uniform ditribution" /></p>
 
 <ol>
-<li>T random tokens per node and partition by token value</li>
-<li>T random tokens per node and equal sized partitions</li>
-<li>Q/S tokens per node, equal-sized partitions</li>
+<li><p>T random tokens per node and partition by token value</p></li>
+
+<li><p>T random tokens per node and equal sized partitions</p></li>
+
+<li><p>Q/S tokens per node, equal-sized partitions</p></li>
 </ol></li>
 
 <li><p>Coordination</p>
 
 <ol>
-<li>Client-driven</li>
-<li>Server-driven(load balancer)</li>
+<li><p>Client-driven</p></li>
+
+<li><p>Server-driven(load balancer)</p></li>
 </ol></li>
 </ul>
 
 <h2 id="summary">Summary</h2>
 
-<p>The paper an eventually consistent distributed, application level
-conflicts resolution K/V database which also aims write never fails.
-Dynamo is much like PNUTS with eventual consistency while PNUTS uses
-per-record-timeline consistency to ensure one order. And Dynamo is much
-like Bayou with its application-level reconciliation while Bayou may
+<p>The paper introduces an eventually consistent distributed, application-level
+conflicts resolution K/V database which focuses that write never fails called
+Dynamo. Dynamo is much like PNUTS with eventual consistency while PNUTS uses
+per-record-timeline consistency to ensure one order. Moreover Dynamo is much
+like Bayou with its application-level resolution while Bayou may
 rollback writes.</p>
 
 <p>Dynamo is built for Amazon&rsquo;s e-commerce platform which guarantees
 service level agreements purely targeting at controlling performance at
-the 99.9th percentile. So Dynamo mainly focuses on the performance
+the 99.9th percentile. So Dynamo mainly focuses on the performance and
 availability(&ldquo;always writable&rdquo;) instead of consistency and durability.</p>
 
 <p>The paper introduces the architecture in several core components:</p>
 
-<h3 id="partition-replication">Partition &amp;&amp; Replication</h3>
+<h5 id="partition-replication">Partition &amp;&amp; Replication</h5>
 
 <p>The Dynamo uses consistency hashing to partition the storage with
 virtual nodes for uniform distribution. Moreover, the each hashed key is
@@ -212,12 +237,12 @@ replicated on several successor nodes and all nodes contain the key are
 called <code>perference list</code> of the key. The <code>coordinator</code> (who accept the
 <code>put/get</code> from clients) then forwards the all from clients to the nodes
 in the list. The consistent hashing is decentralized and almost balanced
-due to virtual nodes while data may need the shift to other nodes when
+due to virtual nodes, while data may need to be shift to other nodes when
 new nodes join/leave the system. Dynamo treats all failure as temporary
-and only make changes when explicitly add/remove nodes which should take
+and only make changes when explicitly add/remove nodes and the operation should take
 a long time.</p>
 
-<h3 id="data-versioning">Data Versioning</h3>
+<h5 id="data-versioning">Data Versioning</h5>
 
 <p>Because of eventual consistency and always writable requirements,
 divergent replicas need to be resolved. Dynamo allows multiple versions
@@ -226,33 +251,34 @@ resolution to resolve the conflicts. For example, the case of shopping
 cart uses union which may result in no lost &lsquo;add to chart&rsquo; while may
 cause deleted one to resurface.</p>
 
-<h3 id="system-api">System API</h3>
+<h5 id="system-api">System API</h5>
 
 <p>Dynamo only supports <code>put/get</code>. There are two ways of routing. The first
 one is using <code>load balancer</code>, which transfer the request to load
-balancer, and then load balancer transfer it to a random node, and then
-the node will forward according to preference list. The second one is
-just linking to a client library and transfer to the chosen node.</p>
+balancer, and load balancer transfer it to a random node, and then
+the node will forward according to the preference list. The second one is
+just linking it to a client library which will transfer the request to the
+appreciate node.</p>
 
 <p>Dynamo uses <code>sloppy quorum</code> and <code>hinted handoff</code> to achieve always
 writable requirements.</p>
 
-<p>The <code>sloppy quorum</code> means that with R(reply to the client only R
-replicas replies), W(reply to the client only W-1 replicas replies),
+<p>The <code>sloppy quorum</code> means that with R(node reply to the client only R
+replicas replies), W(node reply to the client only W-1 replicas replies),
 N(first N reachable nodes in reference list) and quorum rule that R + W
 &gt; N, there will be an overlap between R and W, so Dynamo can promise
 consistency.</p>
 
-<p>The <code>hinted handoff</code> means that when first N nodes in the reference list
+<p>The <code>hinted handoff</code> means that when first N nodes in the reference list are
 unreachable, we may need to use other nodes to record the temporary data
 and transfer the data when the node is reachable again. This technique
 may result in some inconsistency while improving the availability.</p>
 
 <p>Due to failure, replicas may become unsynchronized, Dynamo uses the
-<code>Merkle tree</code> (hashing based tree) and <code>gossip protocol</code> as anti-entropy
+<code>Merkle tree</code> (hashing based tree) and <code>gossip protocol</code> as the anti-entropy
 protocol, which can reduce the data necessary for transfer.</p>
 
-<h3 id="membership">Membership</h3>
+<h5 id="membership">Membership</h5>
 
 <p>According to the paper, a gossip-based protocol propagates membership
 changes and maintains an eventually consistent view of membership. So
@@ -260,10 +286,10 @@ some inconsistency may be introduced. For example, the deleted server
 might get puts meant for its replacement and added server might miss
 some puts because not known to the coordinator.</p>
 
-<h3 id="design-experience">Design experience</h3>
+<h5 id="design-experience">Design experience</h5>
 
-<p>Dynamo&rsquo;s consistent hashing design experienced evolution. The old
-scheme is randomly partitioned which requires the scan to split the
+<p>Dynamo&rsquo;s consistent hashing design experiences evolution. The old
+scheme is randomly partitioned which requires the scan(O(n)) to split the
 range of the nodes. And the new scheme just uniformly divided the circle
 into Pre-determined set, and transfer the ranges for simplicity and
 performance.</p>
@@ -275,9 +301,9 @@ performance.</p>
 special questions and mixes them smoothly to build Dynamo.</p></li>
 
 <li><p>The always writable model is meaningful to the application such as
-amazon in terms of SLA for the 99.9th percentile.</p></li>
+Amazon due to SLA for the 99.9th percentile.</p></li>
 
-<li><p>Nice experience introduction of how design evolves.</p></li>
+<li><p>Nice experience introduction of how and why design evolves.</p></li>
 </ul>
 
 <h2 id="weakness-of-the-paper">Weakness of the paper</h2>
